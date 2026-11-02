@@ -34,6 +34,29 @@ ci sono contenuti veri (DECISIONI.md P2–P3). Nulla è stato inventato.
    riconoscibili. Il logo è tagliato di ~5 px in alto e a sinistra: chiedere il file originale.
 6. `facciata-folla.png` **non è nel sito né in git**: decine di persone riconoscibili.
 
+## Mockup per il gestore
+Ramo `mockup-gestore`, anteprima Vercel **protetta** (serve un account del team):
+<https://docks-dora-git-mockup-gestore-coste1.vercel.app/>. Stesso sito con carta dei vini,
+piatti, prezzi e date delle serate **inventati** e tre foto di Wikimedia Commons (CC0, CC BY,
+CC BY-SA, crediti nel sito). Ogni elemento inventato ha l'etichetta gialla ESEMPIO. Serve a far
+vedere al gestore come verrebbe il sito con i suoi contenuti. **Non va mai unito a `main`.**
+Dettagli in `docs/anteprime-mockup/LEGGIMI.md` sul ramo.
+
+## Foto da fare (la cosa che cambia di più il sito)
+Di sera, senza persone riconoscibili (o con il loro consenso), dal telefono va bene, in
+orizzontale salvo dove indicato:
+1. Facciata con il neon acceso, da lontano, tutta in quadro (orizzontale e verticale).
+2. Insegna "DOCKS DORA" da vicino.
+3. Porta ad arco aperta con la luce dentro.
+4. La sala vuota, vista d'insieme, luci accese.
+5. Il bancone, con bottiglie e calici.
+6. Calici versati (un rosso e un bianco) sul bancone o sul tavolo.
+7. Un tagliere vero del locale, dall'alto.
+8. Un piatto caldo della cucina, dall'alto e di tre quarti.
+9. La lavagna o la carta dei vini (serve anche per trascrivere il menu).
+10. Un dettaglio: mattoni, orologio della facciata, una bottiglia con l'etichetta.
+Più: il **file originale del logo** e la **carta dei vini/menu** con i prezzi.
+
 ## Cosa non si sa
 Menu, carta vini, prezzi; foto di interno, bancone, piatti; ragione sociale e P.IVA; date e
 formula delle serate; storia dell'edificio (date contraddittorie: non usata); recensioni dei
