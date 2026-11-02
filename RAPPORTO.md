@@ -1,7 +1,10 @@
 # RAPPORTO: Docks Dora Wine Bar (demo)
 
-Stato: **demo locale, non pubblicata**. Solo commit locali, nessun push, nessun deploy,
-nessun contatto con il locale. `noindex` + `robots.txt` chiuso.
+Stato: **demo pubblicata su Vercel con link pubblico** (scelta dell'utente, 2 novembre 2026),
+deploy automatico dal branch `main` di `siti-web-torino/docks-dora` (repo pubblica, scelta
+dell'utente). Resta `noindex` + `robots.txt` chiuso. Il sito dice in cima e nel piè di pagina
+che è dimostrativo e non ufficiale. Nessun contatto con il locale. Attenzione: logo e foto della
+locandina sono online senza permesso del locale.
 
 ## Cosa è pronto
 - Sito one-page mobile-first (`index.html`), direzione "Neon sul mattone" (DECISIONI.md).

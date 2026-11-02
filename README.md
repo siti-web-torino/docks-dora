@@ -1,8 +1,9 @@
 # Docks Dora Wine Bar: sito demo
 
 Sito one-page per **Docks Dora Wine Bar**, vineria con cucina in Via Valprato 68, Torino,
-dentro i Docks Dora. **Demo non pubblica**: `noindex` e `robots.txt` chiuso. Il locale non è
-stato contattato.
+dentro i Docks Dora. **Demo non ufficiale**, pubblicata su Vercel con deploy automatico dal
+branch `main` (ogni push va online). `noindex` e `robots.txt` chiuso. Il locale non è stato
+contattato.
 
 HTML, CSS e JavaScript puri, nessuna build. Generato dal template `template-vetrina`
 (regole in `CLAUDE.md`).
