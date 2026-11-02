@@ -29,7 +29,9 @@ Sul sito non ci sono più riquadri [DA CONFERMARE]: orari, telefono e posizione 
 dati normali e una nota nel piè di pagina dice che vanno verificati. Nel codice i dati non
 confermati sono segnati con `// DA VERIFICARE`. **Prima di andare dal locale vanno tutti
 controllati**, perché il sito li mostra come certi.
-| Indirizzo, tipo, claim, pilastri | `indirizzo`, `tipo`, `claim`, `pilastri` |
+| Indirizzo, tipo | `indirizzo`, `tipo` |
+| Claim e pilastri (testi della locandina, con icone) | direttamente in `index.html`, sezione "Il posto" |
+| Riga "Da martedì a sabato, dalle 17 a mezzanotte." | si calcola da `orari.giorni`; sparisce se gli orari non sono uguali tutti i giorni |
 
 L'HTML contiene gli stessi testi come riserva per chi ha JavaScript spento: se cambi un dato
 in `DATI`, il sito mostra quello di `DATI`. I riquadri fissi in HTML (P.IVA nel piè di pagina)

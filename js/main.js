@@ -6,12 +6,7 @@
 const DATI = {
   nome: "Docks Dora Wine Bar",
   tipo: "Vineria con cucina",                     // locandina
-  claim: "Dove il vino incontra il gusto",        // locandina, testo esatto
-  pilastri: [                                     // locandina, testo esatto
-    ["Vini", "selezionati"],
-    ["Cucina", "di qualità"],
-    ["Atmosfera", "unica"],
-  ],
+  // Claim e pilastri della locandina stanno in index.html (sezione "Il posto").
 
   indirizzo: {
     via: "Via Valprato 68",
@@ -172,7 +167,6 @@ const DATI = {
     tutti('[data-campo="citta"]').forEach((el) => (el.textContent = DATI.indirizzo.citta));
     tutti('[data-campo="complesso"]').forEach((el) => (el.textContent = DATI.indirizzo.complesso));
     tutti('[data-campo="tipo"]').forEach((el) => (el.textContent = DATI.tipo));
-    tutti('[data-campo="claim"]').forEach((el) => (el.textContent = DATI.claim));
 
     tutti('[data-campo="trovarlo"]').forEach((el) => (el.textContent = DATI.comeTrovarlo));
 
@@ -188,18 +182,27 @@ const DATI = {
     }
   }
 
-  function mostraPilastri() {
-    const ul = document.querySelector("[data-pilastri]");
-    if (!ul) return;
-    ul.textContent = "";
-    DATI.pilastri.forEach(([parola, resto]) => {
-      const li = document.createElement("li");
-      const s = document.createElement("span");
-      s.className = "pilastri__parola";
-      s.textContent = parola;
-      li.append(s, " " + resto);
-      ul.append(li);
-    });
+  // "Da martedì a sabato, dalle 17 a mezzanotte." quando i giorni aperti sono di fila
+  // e con lo stesso orario; altrimenti la riga sparisce (la tabella completa è in fondo).
+  function mostraRiassunto() {
+    const p = document.querySelector("[data-riassunto]");
+    if (!p) return;
+    const aperti = ORDINE.filter((d) => DATI.orari.giorni[d]);
+    const fasce = new Set(aperti.map((d) => DATI.orari.giorni[d].join("-")));
+    const diFila = aperti.every((d, i) => i === 0 || ORDINE.indexOf(d) === ORDINE.indexOf(aperti[i - 1]) + 1);
+    if (!aperti.length || fasce.size !== 1 || !diFila) { p.hidden = true; return; }
+    const [da, a] = DATI.orari.giorni[aperti[0]];
+    const ore = (hhmm) => {
+      if (hhmm === "24:00" || hhmm === "00:00") return "mezzanotte";
+      const [h, m] = hhmm.split(":");
+      return m === "00" ? String(Number(h)) : `${Number(h)}:${m}`;
+    };
+    const giorni = aperti.length === 7 ? "Tutti i giorni"
+      : aperti.length === 1 ? capitale(GIORNI[aperti[0]])
+      : `Da ${GIORNI[aperti[0]]} a ${GIORNI[aperti[aperti.length - 1]]}`;
+    const prep = (s) => (s === "mezzanotte" ? "a mezzanotte" : s === "1" ? "all'una" : `alle ${s}`);
+    const dalle = (s) => (s === "1" ? "dall'una" : `dalle ${s}`);
+    p.textContent = `${giorni}, ${dalle(ore(da))} ${prep(ore(a))}.`;
   }
 
   function mostraEventi() {
@@ -256,7 +259,7 @@ const DATI = {
 
   mostraContatti();
   gestisciBarra();
-  mostraPilastri();
+  mostraRiassunto();
   mostraOrari();
   mostraStato();
   mostraEventi();

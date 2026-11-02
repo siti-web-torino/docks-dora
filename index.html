@@ -23,6 +23,7 @@
       <a class="testata__logo" href="#contenuto" aria-label="Docks Dora Wine Bar, torna all'inizio">
         <img src="img/logo.webp" width="311" height="308" alt="Logo Docks Dora Wine Bar">
       </a>
+      <span class="testata__nome" aria-hidden="true">Docks Dora</span>
       <nav class="testata__nav" aria-label="Sezioni">
         <a href="#posto">Il posto</a>
         <a href="#menu" data-link="menu" hidden>Menu</a>
@@ -37,6 +38,8 @@
 
     <!-- Prima schermata: chi, dove, aperto?, azioni -->
     <section class="apertura" aria-labelledby="titolo">
+      <!-- alone: la stessa foto della facciata, sfocata, per dare la luce del neon a tutta la schermata -->
+      <div class="apertura__alone" aria-hidden="true"></div>
       <div class="contenitore apertura__griglia">
         <div class="apertura__testo">
           <p class="sopratitolo" data-campo="tipo">Vineria con cucina</p>
@@ -44,6 +47,7 @@
             <span class="insegna__wine">Wine <em>bar</em></span>
             <span class="insegna__nome">Docks Dora</span>
           </h1>
+          <p class="apertura__riassunto" data-riassunto>Da martedì a sabato, dalle 17 a mezzanotte.</p>
 
           <p class="stato" data-stato aria-live="polite">
             <span class="stato__luce" aria-hidden="true"></span>
@@ -65,6 +69,7 @@
         <figure class="apertura__foto">
           <img src="img/facciata.webp" width="310" height="740"
                alt="La facciata di sera: mattoni, orologio, insegna al neon rossa Docks Dora e scritta Wine Bar accanto alla porta ad arco illuminata.">
+          <span class="apertura__bollino"><img src="img/logo.webp" width="311" height="308" alt=""></span>
         </figure>
       </div>
     </section>
@@ -73,17 +78,28 @@
     <section id="posto" class="sezione posto" aria-labelledby="titolo-posto">
       <div class="contenitore">
         <h2 id="titolo-posto" class="titolo-sezione">Il posto</h2>
+        <!-- claim della locandina, testo esatto -->
         <blockquote class="claim">
-          <p data-campo="claim">Dove il vino incontra il gusto</p>
+          <p>Dove il <em>vino</em> incontra il <em>gusto</em></p>
         </blockquote>
-        <ul class="pilastri" data-pilastri>
-          <li><span class="pilastri__parola">Vini</span> selezionati</li>
-          <li><span class="pilastri__parola">Cucina</span> di qualità</li>
-          <li><span class="pilastri__parola">Atmosfera</span> unica</li>
+        <!-- pilastri della locandina, testo esatto; icone disegnate a filo -->
+        <ul class="pilastri">
+          <li>
+            <svg class="pilastri__icona" viewBox="0 0 48 48" aria-hidden="true"><path d="M15 6h18c0 9-1.5 17-9 18-7.5-1-9-9-9-18zM24 24v16M16 42h16M15.5 13h17"/></svg>
+            <span><span class="pilastri__parola">Vini</span> selezionati</span>
+          </li>
+          <li>
+            <svg class="pilastri__icona" viewBox="0 0 48 48" aria-hidden="true"><path d="M16 6v12a4 4 0 0 0 8 0V6M20 6v36M33 42V6c-4 3-5 9-5 15h5"/></svg>
+            <span><span class="pilastri__parola">Cucina</span> di qualità</span>
+          </li>
+          <li>
+            <svg class="pilastri__icona" viewBox="0 0 48 48" aria-hidden="true"><path d="M8 12l10 2c0 6-2 11-7 11-3 0-4-4-3-13zM11 25l-2 14M5 40h8M40 12l-10 2c0 6 2 11 7 11 3 0 4-4 3-13zM37 25l2 14M35 40h8M24 4v4M18 6l2 3M30 6l-2 3"/></svg>
+            <span><span class="pilastri__parola">Atmosfera</span> unica</span>
+          </li>
         </ul>
         <p class="posto__testo">
-          Vino, cucina e una porta ad arco dentro i Docks Dora.
-          Di sera la riconosci dall'insegna rossa.
+          Una vineria con cucina dentro i Docks Dora: mattoni, luce calda
+          e un'insegna rossa accesa sopra la porta.
         </p>
       </div>
     </section>
@@ -113,11 +129,18 @@
             <span data-campo="via">Via Valprato 68</span><br>
             <span data-campo="citta">Torino</span>, <span data-campo="complesso">dentro i Docks Dora</span>
           </address>
-          <p class="dove__trovarlo">
-            <span data-campo="trovarlo">Piazzetta Mulassano, manica centrale, di fronte all'ingresso carraio</span>
-          </p>
+          <ol class="passi">
+            <li>Entra ai Docks Dora da Via Valprato 68.</li>
+            <li data-campo="trovarlo">Piazzetta Mulassano, manica centrale, di fronte all'ingresso carraio</li>
+            <li><span>Cerca l'insegna rossa <span class="neon-piccolo">Docks Dora</span> sopra la porta ad arco.</span></li>
+          </ol>
           <a class="bottone bottone--strada" data-mappa href="https://www.google.com/maps/search/?api=1&amp;query=Via%20Valprato%2068%2C%20Torino" target="_blank" rel="noopener">Come arrivare</a>
         </div>
+
+        <figure class="dove__foto">
+          <img src="img/insegna.webp" width="306" height="350" loading="lazy"
+               alt="L'ingresso di sera: insegna al neon rossa Docks Dora sopra la porta ad arco, neon Wine Bar a sinistra, luce calda all'interno.">
+        </figure>
 
         <div class="dove__blocco">
           <h3 class="titolo-piccolo">Orari</h3>
