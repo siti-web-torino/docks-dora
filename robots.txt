@@ -1,0 +1,3 @@
+# Demo: sito chiuso ai motori di ricerca finché il locale non approva
+User-agent: *
+Disallow: /

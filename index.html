@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- DEMO: non indicizzare finché il locale non approva -->
+  <meta name="robots" content="noindex, nofollow">
+  <title>Docks Dora Wine Bar · Vineria con cucina · Via Valprato 68, Torino</title>
+  <meta name="description" content="Vineria con cucina in Via Valprato 68, Torino, dentro i Docks Dora.">
+  <meta name="theme-color" content="#0f0b09">
+  <link rel="icon" href="img/favicon.png" type="image/png">
+  <link rel="preload" href="fonts/bodoni-moda.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/jost.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="salta" href="#contenuto">Vai al contenuto</a>
+
+  <div class="avviso-demo" role="note">
+    Demo non pubblica. I riquadri <span class="dc">da confermare</span> sono dati non ancora verificati con il locale.
+  </div>
+
+  <header class="testata">
+    <div class="contenitore testata__riga">
+      <a class="testata__logo" href="#contenuto" aria-label="Docks Dora Wine Bar, torna all'inizio">
+        <img src="img/logo.webp" width="311" height="308" alt="Logo Docks Dora Wine Bar">
+      </a>
+      <nav class="testata__nav" aria-label="Sezioni">
+        <a href="#menu">Menu</a>
+        <a href="#serate">Serate</a>
+        <a href="#dove">Dove e quando</a>
+      </nav>
+      <a class="bottone bottone--chiama testata__chiama" data-tel href="tel:+393451490333">Chiama</a>
+    </div>
+  </header>
+
+  <main id="contenuto">
+
+    <!-- Prima schermata: chi, dove, aperto?, azioni -->
+    <section class="apertura" aria-labelledby="titolo">
+      <div class="contenitore apertura__griglia">
+        <div class="apertura__testo">
+          <p class="sopratitolo" data-campo="tipo">Vineria con cucina</p>
+          <h1 id="titolo" class="insegna">
+            <span class="insegna__wine">Wine <em>bar</em></span>
+            <span class="insegna__nome">Docks Dora</span>
+          </h1>
+
+          <p class="stato" data-stato aria-live="polite">
+            <span class="stato__luce" aria-hidden="true"></span>
+            <span class="stato__testo" data-stato-testo>Mar–sab 17:00–24:00</span>
+            <span class="dc" data-orari-dc>da confermare</span>
+          </p>
+
+          <p class="apertura__dove">
+            <span data-campo="via">Via Valprato 68</span>, <span data-campo="citta">Torino</span><br>
+            <span data-campo="complesso">dentro i Docks Dora</span>
+          </p>
+
+          <div class="azioni">
+            <a class="bottone bottone--chiama" data-tel href="tel:+393451490333">Chiama</a>
+            <a class="bottone bottone--strada" data-mappa href="https://www.google.com/maps/search/?api=1&amp;query=Via%20Valprato%2068%2C%20Torino" target="_blank" rel="noopener">Come arrivare</a>
+          </div>
+          <p class="azioni__nota">Per prenotare si chiama. <span class="dc">numero da confermare</span></p>
+        </div>
+
+        <figure class="apertura__foto">
+          <img src="img/facciata.webp" width="310" height="740"
+               alt="La facciata di sera: mattoni, orologio, insegna al neon rossa Docks Dora e scritta Wine Bar accanto alla porta ad arco illuminata.">
+        </figure>
+      </div>
+    </section>
+
+    <!-- Il posto: solo testi della locandina e dati confermati -->
+    <section class="sezione posto" aria-labelledby="titolo-posto">
+      <div class="contenitore">
+        <h2 id="titolo-posto" class="titolo-sezione">Il posto</h2>
+        <blockquote class="claim">
+          <p data-campo="claim">Dove il vino incontra il gusto</p>
+        </blockquote>
+        <ul class="pilastri" data-pilastri>
+          <li><span class="pilastri__parola">Vini</span> selezionati</li>
+          <li><span class="pilastri__parola">Cucina</span> di qualità</li>
+          <li><span class="pilastri__parola">Atmosfera</span> unica</li>
+        </ul>
+        <p class="posto__testo">
+          Vino, cucina e una porta ad arco dentro i Docks Dora.
+          Di sera la riconosci dall'insegna rossa.
+        </p>
+      </div>
+    </section>
+
+    <!-- Menu: non fornito -->
+    <section id="menu" class="sezione menu" aria-labelledby="titolo-menu">
+      <div class="contenitore">
+        <h2 id="titolo-menu" class="titolo-sezione">Cosa si beve e si mangia</h2>
+        <div class="riquadro-dc" data-menu>
+          <p class="riquadro-dc__etichetta">[DA CONFERMARE]</p>
+          <p>Menu e carta dei vini non sono ancora qui. Per sapere cosa c'è stasera, chiama.</p>
+          <a class="bottone bottone--chiama" data-tel href="tel:+393451490333">Chiama</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Serate: nomi dal brief, nessuna data -->
+    <section id="serate" class="sezione serate" aria-labelledby="titolo-serate">
+      <div class="contenitore">
+        <h2 id="titolo-serate" class="titolo-sezione">Serate</h2>
+        <ul class="serate__elenco" data-eventi>
+          <li class="serata">
+            <p class="serata__nome">San Martino alla Salentina</p>
+            <p class="serata__dettaglio">Negroamaro e panini</p>
+            <p class="dc">data e dettagli da confermare</p>
+          </li>
+          <li class="serata">
+            <p class="serata__nome">Aperisharing</p>
+            <p class="dc">data e formula da confermare</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Dove e quando -->
+    <section id="dove" class="sezione dove" aria-labelledby="titolo-dove">
+      <div class="contenitore dove__griglia">
+        <div class="dove__blocco">
+          <h2 id="titolo-dove" class="titolo-sezione">Dove e quando</h2>
+          <address class="dove__indirizzo">
+            <span data-campo="via">Via Valprato 68</span><br>
+            <span data-campo="citta">Torino</span>, <span data-campo="complesso">dentro i Docks Dora</span>
+          </address>
+          <p class="dove__trovarlo">
+            <span data-campo="trovarlo">Piazzetta Mulassano, manica centrale, di fronte all'ingresso carraio</span>
+            <span class="dc">da confermare</span>
+          </p>
+          <a class="bottone bottone--strada" data-mappa href="https://www.google.com/maps/search/?api=1&amp;query=Via%20Valprato%2068%2C%20Torino" target="_blank" rel="noopener">Come arrivare</a>
+        </div>
+
+        <div class="dove__blocco">
+          <h3 class="titolo-piccolo">Orari <span class="dc">da confermare</span></h3>
+          <table class="orari" data-orari>
+            <caption class="visivamente-nascosto">Orari di apertura</caption>
+            <tbody>
+              <tr><th scope="row">Lunedì</th><td>Chiuso</td></tr>
+              <tr><th scope="row">Martedì</th><td>17:00–24:00</td></tr>
+              <tr><th scope="row">Mercoledì</th><td>17:00–24:00</td></tr>
+              <tr><th scope="row">Giovedì</th><td>17:00–24:00</td></tr>
+              <tr><th scope="row">Venerdì</th><td>17:00–24:00</td></tr>
+              <tr><th scope="row">Sabato</th><td>17:00–24:00</td></tr>
+              <tr><th scope="row">Domenica</th><td>Chiuso</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="dove__blocco">
+          <h3 class="titolo-piccolo">Contatti</h3>
+          <p class="contatto">
+            <a class="contatto__tel" data-tel data-tel-testo href="tel:+393451490333">+39 345 149 0333</a>
+            <span class="dc">da confermare</span>
+          </p>
+          <div class="riquadro-dc riquadro-dc--piccolo" data-instagram>
+            <p class="riquadro-dc__etichetta">[DA CONFERMARE] Instagram</p>
+            <p>Due nomi diversi: @docksdorawinebar e @winebardocksdora. Il link arriva quando il locale conferma quello giusto.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="piede">
+    <div class="contenitore piede__griglia">
+      <img class="piede__logo" src="img/logo.webp" width="311" height="308" alt="" loading="lazy">
+      <div>
+        <p class="piede__nome">Docks Dora Wine Bar</p>
+        <p>Vineria con cucina · Via Valprato 68, Torino</p>
+        <p class="dc">ragione sociale e P.IVA da confermare</p>
+      </div>
+      <p class="piede__note">Demo non pubblica. Caratteri Bodoni Moda e Jost, licenza SIL OFL.</p>
+    </div>
+  </footer>
+
+  <!-- Barra fissa da telefono: l'azione principale sempre a portata -->
+  <nav class="barra" aria-label="Azioni rapide">
+    <a class="bottone bottone--chiama" data-tel href="tel:+393451490333">Chiama</a>
+    <a class="bottone bottone--strada" data-mappa href="https://www.google.com/maps/search/?api=1&amp;query=Via%20Valprato%2068%2C%20Torino" target="_blank" rel="noopener">Come arrivare</a>
+  </nav>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
