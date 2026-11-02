@@ -1,37 +1,63 @@
-# template-vetrina
+# Docks Dora Wine Bar: sito demo
 
-Punto di partenza per i siti vetrina one-page dei clienti. Contiene solo le regole
-(`CLAUDE.md`): il sito lo costruisce Claude Code.
+Sito one-page per **Docks Dora Wine Bar**, vineria con cucina in Via Valprato 68, Torino,
+dentro i Docks Dora. **Demo non pubblica**: `noindex` e `robots.txt` chiuso. Il locale non è
+stato contattato.
 
-## Nuovo cliente
+HTML, CSS e JavaScript puri, nessuna build. Generato dal template `template-vetrina`
+(regole in `CLAUDE.md`).
 
-1. Su GitHub: **Use this template → Create a new repository**, proprietario
-   `siti-web-torino`, nome del cliente in minuscolo con trattini (es. `quartin-torino`).
-   Poi clonalo sul tuo computer.
-2. Copia le foto del cliente (menu, logo, locale, slogan, cose divertenti) in
-   `img-originali/`.
-3. Apri un terminale nella cartella del progetto e lancia `claude` (modello più forte per
-   questa corsa: `/model`).
-4. Incolla il messaggio che ti prepara la chat di avvio, in questa forma:
+## Aprire il sito
+- Doppio clic su `index.html` (si apre nel browser), oppure
+- da un terminale in questa cartella: `python -m http.server 8765` e poi
+  <http://localhost:8765/>.
 
-   ```
-   Nuovo cliente: [NOME], [VIA, QUARTIERE], Torino. Tipo: [pizzeria / bar / ...].
-   Note: [quello che sai]
-   Foto in img-originali/.
-   Preferenze mie, facoltative e non vincolanti: [...]
-   Segui CLAUDE.md. Lavora da solo fino alla fine.
-   ```
+## Dove si cambiano i contenuti
+Tutti i dati modificabili stanno nell'oggetto `DATI` in cima a **`js/main.js`**:
 
-5. Al termine leggi, in questo ordine: `RAPPORTO.md`, gli screenshot in `docs/anteprime/`,
-   il menu trascritto in `STUDIO.md` e `DECISIONI.md`.
+| Cosa | Campo in `DATI` |
+|---|---|
+| Orari (per giorno, `null` = chiuso) | `orari.giorni` |
+| Togliere [da confermare] dagli orari | `orari.confermato: true` |
+| Telefono | `telefono.numero` (per il link), `telefono.testo` (come si legge), `telefono.confermato` |
+| Dove si trova dentro i Docks Dora | `comeTrovarlo.testo`, `comeTrovarlo.confermato` |
+| Instagram | `instagram: "nomeaccount"` (oggi `null`: nessun link) |
+| Serate | `eventi`: `nome`, `dettaglio`, `data` ("2026-11-11"), `confermato` |
+| Menu | `menu`: elenco di voci; finché è vuoto resta il riquadro [DA CONFERMARE] |
+| Indirizzo, tipo, claim, pilastri | `indirizzo`, `tipo`, `claim`, `pilastri` |
 
-## Repository prima, deploy dalla repository
-Per **ogni** sito si crea prima la repo dedicata qui nell'organizzazione, partendo dal template.
-Il codice e i controlli si salvano in quella repo; poi si usa l'integrazione GitHub già collegata a Vercel, si seleziona/importa la repo e si avvia **Deploy**.
-Anche gli aggiornamenti successivi passano dalla stessa repo. Un sito richiesto pubblico va verificato dal link di produzione senza login o autorizzazioni.
-Repo pubblica/privata e sito pubblico/privato sono due scelte distinte: mantieni le impostazioni concordate con l'utente.
+L'HTML contiene gli stessi testi come riserva per chi ha JavaScript spento: se cambi un dato
+in `DATI`, il sito mostra quello di `DATI`. I riquadri fissi in HTML (P.IVA nel piè di pagina)
+si cambiano direttamente in `index.html`.
 
-## Perché CLAUDE.md non cambia da solo
-È un normale file di testo. Cambia solo se lo modifichi tu o se chiedi a Claude di farlo
-("aggiungi questa regola al CLAUDE.md"). Ogni nuovo cliente riceve una copia al momento
-della creazione dal template: migliorare il template non cambia i siti già fatti.
+L'indicatore "Aperto ora / Chiuso ora" si calcola da `orari.giorni` con l'ora di Torino.
+
+## Elenco dei [DA CONFERMARE]
+1. **Orari** mar–sab 17:00–24:00, domenica e lunedì chiuso (solo dal brief).
+2. **Telefono** +39 345 149 0333 (solo dal brief). È anche il pulsante Chiama.
+3. **Posizione dentro i Docks Dora**: "piazzetta Mulassano, manica centrale, di fronte
+   all'ingresso carraio" (da vivoin.it, fonte terza).
+4. **Instagram**: brief @docksdorawinebar, locandina @winebardocksdora. Nessun link finché non
+   si sa quale è giusto.
+5. **Menu e carta vini**: non forniti.
+6. **Serate** "San Martino alla Salentina" (Negroamaro e panini) e "Aperisharing": date e
+   dettagli mancanti.
+7. **Ragione sociale e P.IVA**: non forniti.
+8. **Data di apertura**: il brief dice settembre 2026, una fonte web segnala un evento al bar
+   il 12/06/2026. Non usata nel sito.
+9. **Permesso d'uso** della foto della locandina e del logo (file originale del logo, meglio
+   se vettoriale: quello attuale è tagliato di ~5 px in alto e a sinistra).
+
+## Cartelle
+- `index.html`, `css/style.css`, `js/main.js`: il sito.
+- `img/`: immagini ottimizzate (WebP senza EXIF). `img-originali/`: originali intatti.
+  `facciata-folla.png` è esclusa da git (persone riconoscibili).
+- `fonts/`: Bodoni Moda e Jost, licenza SIL OFL (testi in `fonts/OFL-*.txt`).
+- `docs/anteprime/`: screenshot a 390, 768, 1280 px.
+- `STUDIO.md` (materiale e ricerca), `DECISIONI.md` (scelte), `RAPPORTO.md` (stato),
+  `docs/VERIFICA.md` (critica del risultato).
+- `strumenti/`: script locali (Pillow, screenshot), ignorati da git.
+
+## Rifare gli screenshot
+Con il server acceso su 8765: `node strumenti/anteprime.mjs` (usa Chrome installato).
+`strumenti/` non è in git: se manca, gli screenshot vanno rifatti a mano.

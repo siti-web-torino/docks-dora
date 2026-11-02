@@ -260,7 +260,18 @@ const DATI = {
     box.replaceWith(ul);
   }
 
+  // La barra fissa compare quando Chiama / Come arrivare della prima schermata escono dallo schermo
+  function gestisciBarra() {
+    const barra = document.querySelector(".barra");
+    const azioni = document.querySelector(".azioni");
+    if (!barra || !azioni || !("IntersectionObserver" in window)) return;
+    new IntersectionObserver(([voce]) => {
+      barra.classList.toggle("barra--nascosta", voce.isIntersecting);
+    }).observe(azioni);
+  }
+
   mostraContatti();
+  gestisciBarra();
   mostraPilastri();
   mostraOrari();
   mostraStato();

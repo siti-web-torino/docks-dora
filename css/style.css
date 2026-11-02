@@ -72,6 +72,7 @@ html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
   scroll-padding-top: var(--s-4);
+  scroll-padding-bottom: calc(var(--altezza-barra) + var(--s-4));
 }
 
 body {
@@ -461,6 +462,9 @@ a { color: var(--ambra); text-underline-offset: 0.2em; }
   border-top: 1px solid var(--mattone-bordo);
   backdrop-filter: blur(6px);
 }
+/* JS nasconde la barra finché i pulsanti della prima schermata sono visibili */
+.barra { transition: transform 0.2s ease-out; }
+.barra--nascosta { transform: translateY(110%); visibility: hidden; transition: transform 0.2s ease-out, visibility 0s 0.2s; }
 .barra .bottone { padding-inline: var(--s-2); letter-spacing: 0.03em; font-size: 1rem; white-space: nowrap; }
 
 /* Da 360px in giù: un po' più stretto */
@@ -510,5 +514,5 @@ a { color: var(--ambra); text-underline-offset: 0.2em; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .insegna__nome { animation: none; }
-  .bottone { transition: none; }
+  .bottone, .barra, .barra--nascosta { transition: none; }
 }

@@ -56,4 +56,16 @@ Scelte fatte in autonomia e perché. Fonti abbreviate come in STUDIO.md: [brief]
 È quella più fedele al locale: rosso neon, mattone e luce ambra sono le tre cose che si vedono in **entrambe** le foto della facciata, e il neon è anche il segno con cui si trova la porta di sera dentro un complesso grande (criterio 4). Da C prendo l'indicatore "Aperto adesso / fino alle 24" in cima (criterio 3); da B il serif maiuscolo e il corsivo usato una volta sola, che sono la tipografia reale della locandina. Scarto B perché ricalca un'inaugurazione già passata e rischia lo snob; scarto C perché è freddo e spinge su una storia non verificata.
 
 ## Costruzione
-(vedi sotto, aggiornato durante la fase 4)
+
+| # | Decisione | Motivo |
+|---|---|---|
+| C1 | Font: Bodoni Moda (variabile, con italico) e Jost, entrambi SIL OFL, presi dai pacchetti npm `@fontsource-variable/*@5.3.0` e copiati in `fonts/` con le licenze. | Stack senza CDN; serif ad alto contrasto come la locandina, sans geometrico vicino al "WINE BAR" del logo. |
+| C2 | Prima schermata da telefono: testo a sinistra, striscia verticale della facciata a destra (~116 px). | La foto è verticale e piccola: in una striscia stretta resta nitida e porta l'identità nella prima schermata senza spingere giù orari e azioni (criterio 1). |
+| C3 | Pulsante Chiama rosso insegna `#a8211f` con bianco, "Come arrivare" in contorno ambra. | Un'azione principale riconoscibile (criterio 2); il rosso neon puro `#e0474a` con testo bianco non passa AA. |
+| C4 | Barra fissa in basso fino a 959 px; su desktop sparisce e Chiama sale nella testata. | Criterio 2; su desktop la barra copre contenuto senza vantaggio. |
+| C5 | La barra fissa si nasconde mentre i pulsanti della prima schermata sono visibili. | Evitava doppioni nella schermata più preziosa (VERIFICA #4). |
+| C6 | L'indicatore "Aperto ora" si calcola con l'ora di Europe/Rome, non con quella del telefono. | Un turista con il telefono su un altro fuso vedrebbe lo stato sbagliato. |
+| C7 | Testi scritti da me, brevi: "Per prenotare si chiama.", "Vino, cucina e una porta ad arco dentro i Docks Dora. Di sera la riconosci dall'insegna rossa.", "Menu e carta dei vini non sono ancora qui. Per sapere cosa c'è stasera, chiama." | Solo fatti visibili nelle foto o nel brief; tono diretto, niente aggettivi. |
+| C8 | Riga "Demo non pubblica" in cima e nel piè. | Chi la vede capisce subito che i riquadri gialli sono dati da verificare. Va tolta per la versione vera. |
+| C9 | Nessun iframe, nessun embed Instagram, nessun servizio esterno a parte il link a Google Maps. | CLAUDE.md e brief. |
+| C10 | `README.md` del template sostituito con quello del sito. | La repo ora è del cliente; le istruzioni del template restano in `CLAUDE.md` e nel repository template. |
