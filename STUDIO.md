@@ -89,3 +89,60 @@ Il tono della locandina è sobrio ed elegante, frasi di due-tre parole, nessun a
 - La storia dell'edificio (date contraddittorie nel brief).
 - Quale dei due account Instagram è quello giusto.
 - Se la foto della locandina è di proprietà del locale e se possiamo usarla.
+
+---
+
+## 6. Contesto e criteri di design
+
+Ricerca fatta il 2 novembre 2026 con ricerca web e lettura diretta delle pagine. Legenda: **[oss]** = osservato in una fonte; **[sup]** = mia supposizione.
+
+### 6.1 Cosa cerca chi arriva sul sito di una vineria
+- Le informazioni di base: chi sei, dove sei, orari, telefono, menu, prenotazione [oss: articolo BentoBox, [getbento.com](https://getbento.com/blog/how-to-make-best-restaurant-website-design)]. Fonti di settore, spesso venditori di siti: le prendo come indicazione, non come misura.
+- Da telefono si cercano soprattutto posizione, orari e indicazioni; il traffico da mobile sale a ridosso dei pasti [oss: dati Restaurants Canada citati da [gfs.ca](https://gfs.ca/ideas/the-importance-of-mobile-friendly-websites/); BentoBox]. I numeri sono vecchi (2013–2016).
+- Menu difficili da leggere e siti che sembrano vecchi allontanano i clienti [oss: infografica 1MGH 2019, testo frammentato: la cito solo come tendenza].
+- Ordine probabile per una vineria serale [sup]: 1) è aperto stasera e fino a che ora? 2) dov'è esattamente? 3) che cosa si beve e si mangia, a che prezzo? 4) come prenoto (qui: chiamando).
+
+### 6.2 Siti analizzati (principi, nulla copiato)
+| Sito | Sopra la piega | Azioni | Cosa funziona | Cosa no |
+|---|---|---|---|---|
+| Banco vini e alimenti, Torino ([bancoviniealimenti.it](https://www.bancoviniealimenti.it/)) [oss] | Logo, menu a 6 voci, due titoli grandi, breve testo, un pulsante verso la carta vini | Solo carta vini e Instagram; niente chiama/mappa | Orari su righe separate, chiusura detta chiaramente, nota "no prenotazioni" scritta senza giri | Orari e indirizzo non in alto; nessun tasto chiama |
+| 10 Cases, Londra ([10cases.co.uk](https://www.10cases.co.uk/)) [oss] | Foto, poi titolo che dice tipo + zona e **l'indirizzo subito sotto** | "Find a table" fisso nell'header; menu e carta vini per sezione | Tipo + quartiere + indirizzo nella prima schermata | Menu solo in PDF (scomodo da telefono); orari in fondo |
+| Noble Rot, Londra ([noblerot.co.uk](https://www.noblerot.co.uk/)) [oss] | Una riga di presentazione e tre pulsanti | "Reserve a table" ripetuto in header, hero, sezioni, footer | Un'azione principale ripetuta ovunque | Nessun orario in home; link mappa che puntano alla sede sbagliata |
+| Dante, New York ([dante-nyc.com](https://www.dante-nyc.com/)) [oss] | Grande foto di un cocktail e premi | Blocchi impilati: prenota, eventi, shop, menu | Ogni blocco ha un titolo, una riga e un'azione | Orari e indirizzo non in home: un tocco in più per la cosa più chiesta |
+| Still.a Wine Bar, Torino (scheda [italia.it](https://www.italia.it/it/piemonte/torino/dove-mangiare/stilla-wine-bar)) [oss] | Scheda: orari per giorno, prenotazione via TheFork | Prenota | Orari divisi per giorno con i giorni di chiusura | Non è un sito proprio |
+| Tut vin, Torino (schede raisin.digital dai risultati di ricerca) [oss] | Carta vini e cibo su piattaforma esterna | — | Carta aggiornabile senza toccare il sito | Dipende da un servizio terzo; pagina non leggibile (403) |
+| Tregalli ([tregalli.it](https://www.tregalli.it/)) [oss] | È un e-commerce di vini, probabilmente **non** la Vineria Tre Galli di Torino: lo scarto come omonimo | — | — | Telefono e indirizzo solo nel footer |
+
+Non raggiunti: Rabezzana (connessione rifiutata), The Ten Bells (connessione interrotta).
+
+Principi ricavati:
+1. Le pagine migliori dicono **tipo + zona + indirizzo** nella prima schermata (10 Cases). Molte nascondono orari e telefono in fondo (Dante, Noble Rot, Tregalli): è il difetto più comune.
+2. Un'unica azione principale ripetuta (Noble Rot) funziona meglio di molti pulsanti alla pari.
+3. Orari su righe per giorno, con i giorni di chiusura scritti (Banco, Still.a).
+4. Menu in PDF = scomodo da telefono (10 Cases). Qui il menu non c'è comunque.
+
+### 6.3 Cosa dicono le fonti pubbliche su questo locale
+- Indirizzo Via Valprato 68 confermato da [vivoin.it](https://www.vivoin.it/locations/docks-dora-wine-bar/) (scheda "Docks Dora wine bar", nessuna descrizione, nessun contatto).
+- [vivoin.it, evento del 12/06/2026](https://www.vivoin.it/events/aperi-cementoarmato-libro-mostra-fotografica-tour-porcheddu/): colloca il bar in "piazzetta Mulassano (manica centrale di fronte all'ingresso carraio)" e lo chiama "wine and cocktail bar" "di recente apertura". **Contraddizione con il brief**: un evento al bar a giugno 2026 contro "apertura settembre 2026". Forse l'inaugurazione del 18/19 settembre è venuta dopo un'apertura in sordina: non lo so. La posizione dentro il complesso è utilissima per chi arriva, ma è una fonte terza: nel sito va come [DA CONFERMARE]. "Cocktail" non è nel brief né in locandina: non lo uso.
+- Una scheda Apple Maps per "Docks Dora" a quell'indirizzo riporta mar–sab 17–24, dom e lun chiuso (dal riassunto della ricerca, non sono riuscito ad aprirla; potrebbe riferirsi al complesso). Coincide col brief, ma resta [DA CONFERMARE].
+- Il complesso Docks Dora: ex scalo ferroviario con atelier e spazi creativi, Barriera di Milano, bus 46, 49, 77, accessibilità parziale per sedie a rotelle [oss: [openhousetorino.it](https://www.openhousetorino.it/edifici/docks-dora/)]. Fonte terza: nel sito uso solo il fatto che il bar sta "dentro i Docks Dora" (dal brief), nessuna storia, nessun "ex".
+- **Recensioni**: non ne ho trovate di specifiche sul wine bar. Non so cosa apprezzino i clienti.
+- **Instagram**: nessuno dei due nomi (@docksdorawinebar, @winebardocksdora) compare nei risultati di ricerca. Non verificabile da qui.
+- **Omonimi da non attribuire**: "Amen (Docks Dora)" e "Spazio Docks" sono altri locali/spazi del complesso; la scheda Wanderlog "Docks Dora" in via Perugia 32 è un altro posto. Il "1912" dei magazzini citato da vivoin.it riguarda l'edificio, non il bar, e il brief dice di non usare date.
+
+### 6.4 Preferenze dell'utente a confronto con le prove
+- Serale, nero/antracite con rosso neon e ambra: **coerente** con [locandina] e [folla]. Tengo.
+- Serif classico per i titoli, sans pulito, corsivo pochissimo: **coerente** con la locandina. Tengo, con il corsivo su una sola parola.
+- Rosso vino: non compare nelle foto (il rosso è neon, non bordeaux). Lo uso al massimo come tono scuro di supporto, non come colore d'identità.
+- Pulsante chiama sempre raggiungibile + orari e chi/dove nella prima schermata: **coerente** con i principi 1–2. Tengo.
+- Unico punto di attrito: sfondo nero + testo piccolo, letto di sera per strada, rischia poca leggibilità se si esagera con grigi e oro spento. Seguo il contrasto AA, non l'effetto.
+
+### 6.5 Criteri di design
+1. **Prima schermata a 390 px**: nome, "Vineria con cucina", "Via Valprato 68, dentro i Docks Dora", orari di oggi e i due pulsanti Chiama / Come arrivare. [oss: principio 1; brief]
+2. **Azione principale: Chiama** (tel:), in una barra fissa in basso su telefono insieme a "Come arrivare". [brief; oss: principio 2]
+3. **"Aperto adesso?" in chiaro**: il sito calcola dagli orari nell'oggetto dati se è aperto e fino a che ora, sempre con l'etichetta [DA CONFERMARE] finché il locale non conferma. [sup: è la prima domanda di sera]
+4. **Trovare la porta**: il complesso è grande; dire dove sta il bar dentro i Docks Dora (piazzetta, manica centrale, [DA CONFERMARE]) e usare il neon rosso come segno di riconoscimento. [oss: vivoin.it, openhousetorino.it; sup]
+5. **Onestà sul menu**: la sezione "Cosa si beve e si mangia" esiste, a un tocco dalla prima schermata, con i tre pilastri della locandina e un riquadro chiaro sul menu che manca. Niente piatti inventati. [brief; oss: principio 4]
+6. **Identità presa dal posto**: mattone, neon rosso, luce ambra, tipografia della locandina (serif maiuscolo + un solo corsivo). Logo grigio usato com'è e piccolo. [locandina, folla, logo]
+7. **Leggero e leggibile di sera**: una sola immagine, due famiglie di font locali, testo principale ≥ 17 px, contrasto AA su nero. [sup]
+8. **Niente link incerti**: Instagram non diventa un link finché non si sa quale account è giusto. [brief]
