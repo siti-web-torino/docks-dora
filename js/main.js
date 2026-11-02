@@ -1,7 +1,7 @@
 /* =====================================================================
    DATI DEL LOCALE: tutto quello che si cambia sta qui.
-   confermato: false  =>  accanto al dato compare [da confermare].
-   Fonti di ogni dato: STUDIO.md §5 e DECISIONI.md.
+   "DA VERIFICARE" nei commenti = dato non ancora confermato dal locale
+   (elenco completo nel README). Fonti: STUDIO.md §5 e DECISIONI.md.
    ===================================================================== */
 const DATI = {
   nome: "Docks Dora Wine Bar",
@@ -19,23 +19,20 @@ const DATI = {
     complesso: "dentro i Docks Dora",
   },
 
-  // Fonte terza (vivoin.it, giugno 2026): da far confermare al locale.
-  comeTrovarlo: {
-    testo: "Piazzetta Mulassano, manica centrale, di fronte all'ingresso carraio",
-    confermato: false,
-  },
+  // DA VERIFICARE: fonte terza (vivoin.it, giugno 2026).
+  comeTrovarlo: "Piazzetta Mulassano, manica centrale, di fronte all'ingresso carraio",
 
+  // DA VERIFICARE: dal brief.
   telefono: {
     numero: "+393451490333",                      // per il link tel:
     testo: "+39 345 149 0333",                    // come si legge
-    confermato: false,
   },
 
+  // DA VERIFICARE: dal brief.
   // Orari per giorno: 0 = domenica ... 6 = sabato. null = chiuso.
   // Ore "HH:MM"; "24:00" = mezzanotte. Se si chiude dopo mezzanotte
   // basta scrivere per esempio ["18:00", "01:00"].
   orari: {
-    confermato: false,
     giorni: {
       0: null,
       1: null,
@@ -51,13 +48,15 @@ const DATI = {
   // (brief: @docksdorawinebar, locandina: @winebardocksdora).
   instagram: null,
 
-  // Serate: nomi dal brief. data: "2026-11-11" quando è confermata.
+  // Serate: nomi dal brief. Sul sito compaiono solo quelle con confermato: true
+  // (data: "2026-11-11"). Se nessuna è confermata, la sezione Serate non c'è.
   eventi: [
     { nome: "San Martino alla Salentina", dettaglio: "Negroamaro e panini", data: null, confermato: false },
     { nome: "Aperisharing", dettaglio: null, data: null, confermato: false },
   ],
 
-  // Menu: quando arriva, si scrive qui; finché è vuoto resta il riquadro.
+  // Menu: una voce per riga, solo cose confermate dal locale.
+  // Finché è vuoto, la sezione Menu non c'è.
   menu: [],
 };
 
@@ -70,11 +69,11 @@ const DATI = {
   const ORDINE = [1, 2, 3, 4, 5, 6, 0]; // la tabella parte da lunedì
 
   const tutti = (sel) => Array.from(document.querySelectorAll(sel));
-  const etichettaDc = (testo) => {
-    const s = document.createElement("span");
-    s.className = "dc";
-    s.textContent = testo || "da confermare";
-    return s;
+  // Mostra una sezione nascosta e il suo link nella testata
+  const mostraSezione = (id) => {
+    const s = document.getElementById(id);
+    if (s) s.hidden = false;
+    tutti(`[data-link="${id}"]`).forEach((a) => (a.hidden = false));
   };
   const minuti = (hhmm) => {
     const [h, m] = hhmm.split(":").map(Number);
@@ -139,8 +138,6 @@ const DATI = {
     testo.textContent = s.aperto
       ? `Aperto ora, fino alle ${ora(s.fino)}`
       : `Chiuso ora · apre ${s.quando} alle ${s.da}`;
-    const dc = document.querySelector("[data-orari-dc]");
-    if (dc) dc.hidden = DATI.orari.confermato;
   }
 
   function mostraOrari() {
@@ -166,9 +163,6 @@ const DATI = {
     const t = DATI.telefono;
     tutti("[data-tel]").forEach((a) => (a.href = "tel:" + t.numero));
     tutti("[data-tel-testo]").forEach((a) => (a.textContent = t.testo));
-    if (t.confermato) {
-      tutti(".contatto .dc, .azioni__nota .dc").forEach((el) => el.remove());
-    }
 
     const mappa = "https://www.google.com/maps/search/?api=1&query=" +
       encodeURIComponent(`${DATI.indirizzo.via}, ${DATI.indirizzo.citta}`);
@@ -180,23 +174,17 @@ const DATI = {
     tutti('[data-campo="tipo"]').forEach((el) => (el.textContent = DATI.tipo));
     tutti('[data-campo="claim"]').forEach((el) => (el.textContent = DATI.claim));
 
-    const trovarlo = document.querySelector('[data-campo="trovarlo"]');
-    if (trovarlo) {
-      trovarlo.textContent = DATI.comeTrovarlo.testo;
-      const dc = trovarlo.nextElementSibling;
-      if (dc && DATI.comeTrovarlo.confermato) dc.remove();
-    }
+    tutti('[data-campo="trovarlo"]').forEach((el) => (el.textContent = DATI.comeTrovarlo));
 
     const ig = document.querySelector("[data-instagram]");
     if (ig && DATI.instagram) {
       const nome = DATI.instagram.replace(/^@/, "");
-      const p = document.createElement("p");
       const a = document.createElement("a");
       a.href = `https://www.instagram.com/${nome}/`;
       a.rel = "noopener";
       a.textContent = "Instagram @" + nome;
-      p.append(a);
-      ig.replaceWith(p);
+      ig.append(a);
+      ig.hidden = false;
     }
   }
 
@@ -216,10 +204,10 @@ const DATI = {
 
   function mostraEventi() {
     const ul = document.querySelector("[data-eventi]");
-    if (!ul) return;
-    ul.textContent = "";
+    const confermati = DATI.eventi.filter((ev) => ev.confermato);
+    if (!ul || !confermati.length) return;
     const fmt = new Intl.DateTimeFormat("it-IT", { weekday: "long", day: "numeric", month: "long" });
-    DATI.eventi.forEach((ev) => {
+    confermati.forEach((ev) => {
       const li = document.createElement("li");
       li.className = "serata";
       const nome = document.createElement("p");
@@ -239,25 +227,21 @@ const DATI = {
         t.textContent = capitale(fmt.format(new Date(ev.data + "T12:00:00")));
         li.append(t);
       }
-      if (!ev.confermato || !ev.data) {
-        li.append(etichettaDc(ev.data ? "dettagli da confermare" : "data e dettagli da confermare"));
-      }
       ul.append(li);
     });
+    mostraSezione("serate");
   }
 
   function mostraMenu() {
-    const box = document.querySelector("[data-menu]");
-    if (!box || !DATI.menu.length) return;
-    const ul = document.createElement("ul");
-    ul.className = "serate__elenco";
+    const ul = document.querySelector("[data-menu]");
+    if (!ul || !DATI.menu.length) return;
     DATI.menu.forEach((voce) => {
       const li = document.createElement("li");
       li.className = "serata";
       li.textContent = voce;
       ul.append(li);
     });
-    box.replaceWith(ul);
+    mostraSezione("menu");
   }
 
   // La barra fissa compare quando Chiama / Come arrivare della prima schermata escono dallo schermo

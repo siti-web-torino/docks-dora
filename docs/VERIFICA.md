@@ -1,5 +1,10 @@
 # VERIFICA: critica del sito demo
 
+> Aggiornamento 2 novembre 2026: i riquadri [da confermare] citati sotto non ci sono più e
+> Menu e Serate sono nascoste finché non ci sono dati (DECISIONI.md P3). Gli screenshot in
+> `docs/anteprime/` mostrano la versione nuova. Ricontrollato dopo il cambio: 0 errori in
+> console, 0 file 404, nessuno scorrimento orizzontale a 390, 768, 1280.
+
 Screenshot in `docs/anteprime/` (prima schermata e pagina intera a 390, 768, 1280 px),
 fatti con Chrome headless a densità 1. Data: 2 novembre 2026 (lunedì, quindi lo stato
 mostrato è "Chiuso ora · apre domani alle 17:00").

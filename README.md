@@ -19,12 +19,16 @@ Tutti i dati modificabili stanno nell'oggetto `DATI` in cima a **`js/main.js`**:
 | Cosa | Campo in `DATI` |
 |---|---|
 | Orari (per giorno, `null` = chiuso) | `orari.giorni` |
-| Togliere [da confermare] dagli orari | `orari.confermato: true` |
-| Telefono | `telefono.numero` (per il link), `telefono.testo` (come si legge), `telefono.confermato` |
-| Dove si trova dentro i Docks Dora | `comeTrovarlo.testo`, `comeTrovarlo.confermato` |
+| Telefono | `telefono.numero` (per il link), `telefono.testo` (come si legge) |
+| Dove si trova dentro i Docks Dora | `comeTrovarlo` |
 | Instagram | `instagram: "nomeaccount"` (oggi `null`: nessun link) |
-| Serate | `eventi`: `nome`, `dettaglio`, `data` ("2026-11-11"), `confermato` |
-| Menu | `menu`: elenco di voci; finché è vuoto resta il riquadro [DA CONFERMARE] |
+| Serate | `eventi`: `nome`, `dettaglio`, `data` ("2026-11-11"), `confermato: true` per mostrarla. Senza serate confermate la sezione non compare |
+| Menu | `menu`: elenco di voci. Finché è vuoto la sezione Menu non compare |
+
+Sul sito non ci sono più riquadri [DA CONFERMARE]: orari, telefono e posizione si vedono come
+dati normali e una nota nel piè di pagina dice che vanno verificati. Nel codice i dati non
+confermati sono segnati con `// DA VERIFICARE`. **Prima di andare dal locale vanno tutti
+controllati**, perché il sito li mostra come certi.
 | Indirizzo, tipo, claim, pilastri | `indirizzo`, `tipo`, `claim`, `pilastri` |
 
 L'HTML contiene gli stessi testi come riserva per chi ha JavaScript spento: se cambi un dato

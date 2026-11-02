@@ -16,9 +16,7 @@
 <body>
   <a class="salta" href="#contenuto">Vai al contenuto</a>
 
-  <div class="avviso-demo" role="note">
-    Sito dimostrativo, non ufficiale del locale. I riquadri <span class="dc">da confermare</span> sono dati non ancora verificati.
-  </div>
+  <div class="avviso-demo" role="note">Sito dimostrativo, non ufficiale del locale.</div>
 
   <header class="testata">
     <div class="contenitore testata__riga">
@@ -26,8 +24,9 @@
         <img src="img/logo.webp" width="311" height="308" alt="Logo Docks Dora Wine Bar">
       </a>
       <nav class="testata__nav" aria-label="Sezioni">
-        <a href="#menu">Menu</a>
-        <a href="#serate">Serate</a>
+        <a href="#posto">Il posto</a>
+        <a href="#menu" data-link="menu" hidden>Menu</a>
+        <a href="#serate" data-link="serate" hidden>Serate</a>
         <a href="#dove">Dove e quando</a>
       </nav>
       <a class="bottone bottone--chiama testata__chiama" data-tel href="tel:+393451490333">Chiama</a>
@@ -49,7 +48,6 @@
           <p class="stato" data-stato aria-live="polite">
             <span class="stato__luce" aria-hidden="true"></span>
             <span class="stato__testo" data-stato-testo>Mar–sab 17:00–24:00</span>
-            <span class="dc" data-orari-dc>da confermare</span>
           </p>
 
           <p class="apertura__dove">
@@ -61,7 +59,7 @@
             <a class="bottone bottone--chiama" data-tel href="tel:+393451490333">Chiama</a>
             <a class="bottone bottone--strada" data-mappa href="https://www.google.com/maps/search/?api=1&amp;query=Via%20Valprato%2068%2C%20Torino" target="_blank" rel="noopener">Come arrivare</a>
           </div>
-          <p class="azioni__nota">Per prenotare si chiama. <span class="dc">numero da confermare</span></p>
+          <p class="azioni__nota">Per prenotare si chiama.</p>
         </div>
 
         <figure class="apertura__foto">
@@ -72,7 +70,7 @@
     </section>
 
     <!-- Il posto: solo testi della locandina e dati confermati -->
-    <section class="sezione posto" aria-labelledby="titolo-posto">
+    <section id="posto" class="sezione posto" aria-labelledby="titolo-posto">
       <div class="contenitore">
         <h2 id="titolo-posto" class="titolo-sezione">Il posto</h2>
         <blockquote class="claim">
@@ -90,33 +88,19 @@
       </div>
     </section>
 
-    <!-- Menu: non fornito -->
-    <section id="menu" class="sezione menu" aria-labelledby="titolo-menu">
+    <!-- Menu e Serate restano nascoste finché DATI.menu / DATI.eventi (in js/main.js)
+         non contengono voci confermate dal locale -->
+    <section id="menu" class="sezione menu" aria-labelledby="titolo-menu" hidden>
       <div class="contenitore">
         <h2 id="titolo-menu" class="titolo-sezione">Cosa si beve e si mangia</h2>
-        <div class="riquadro-dc" data-menu>
-          <p class="riquadro-dc__etichetta">[DA CONFERMARE]</p>
-          <p>Menu e carta dei vini non sono ancora qui. Per sapere cosa c'è stasera, chiama.</p>
-          <a class="bottone bottone--chiama" data-tel href="tel:+393451490333">Chiama</a>
-        </div>
+        <ul class="serate__elenco" data-menu></ul>
       </div>
     </section>
 
-    <!-- Serate: nomi dal brief, nessuna data -->
-    <section id="serate" class="sezione serate" aria-labelledby="titolo-serate">
+    <section id="serate" class="sezione serate" aria-labelledby="titolo-serate" hidden>
       <div class="contenitore">
         <h2 id="titolo-serate" class="titolo-sezione">Serate</h2>
-        <ul class="serate__elenco" data-eventi>
-          <li class="serata">
-            <p class="serata__nome">San Martino alla Salentina</p>
-            <p class="serata__dettaglio">Negroamaro e panini</p>
-            <p class="dc">data e dettagli da confermare</p>
-          </li>
-          <li class="serata">
-            <p class="serata__nome">Aperisharing</p>
-            <p class="dc">data e formula da confermare</p>
-          </li>
-        </ul>
+        <ul class="serate__elenco" data-eventi></ul>
       </div>
     </section>
 
@@ -131,13 +115,12 @@
           </address>
           <p class="dove__trovarlo">
             <span data-campo="trovarlo">Piazzetta Mulassano, manica centrale, di fronte all'ingresso carraio</span>
-            <span class="dc">da confermare</span>
           </p>
           <a class="bottone bottone--strada" data-mappa href="https://www.google.com/maps/search/?api=1&amp;query=Via%20Valprato%2068%2C%20Torino" target="_blank" rel="noopener">Come arrivare</a>
         </div>
 
         <div class="dove__blocco">
-          <h3 class="titolo-piccolo">Orari <span class="dc">da confermare</span></h3>
+          <h3 class="titolo-piccolo">Orari</h3>
           <table class="orari" data-orari>
             <caption class="visivamente-nascosto">Orari di apertura</caption>
             <tbody>
@@ -156,12 +139,8 @@
           <h3 class="titolo-piccolo">Contatti</h3>
           <p class="contatto">
             <a class="contatto__tel" data-tel data-tel-testo href="tel:+393451490333">+39 345 149 0333</a>
-            <span class="dc">da confermare</span>
           </p>
-          <div class="riquadro-dc riquadro-dc--piccolo" data-instagram>
-            <p class="riquadro-dc__etichetta">[DA CONFERMARE] Instagram</p>
-            <p>Due nomi diversi: @docksdorawinebar e @winebardocksdora. Il link arriva quando il locale conferma quello giusto.</p>
-          </div>
+          <p class="contatto" data-instagram hidden></p>
         </div>
       </div>
     </section>
@@ -173,9 +152,12 @@
       <div>
         <p class="piede__nome">Docks Dora Wine Bar</p>
         <p>Vineria con cucina · Via Valprato 68, Torino</p>
-        <p class="dc">ragione sociale e P.IVA da confermare</p>
       </div>
-      <p class="piede__note">Sito dimostrativo, non ufficiale del locale. Caratteri Bodoni Moda e Jost, licenza SIL OFL.</p>
+      <p class="piede__note">
+        Sito dimostrativo, non ufficiale del locale: orari, telefono e posizione nel complesso
+        sono da verificare con il locale prima di andarci.
+        Caratteri Bodoni Moda e Jost, licenza SIL OFL.
+      </p>
     </div>
   </footer>
 

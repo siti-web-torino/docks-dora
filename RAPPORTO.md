@@ -16,9 +16,13 @@ locandina sono online senza permesso del locale.
 - Verifica: 0 errori, 0 file mancanti, nessuno scorrimento orizzontale da 320 a 1280 px,
   tastiera e contrasto AA ok. Dettagli e difetti residui in `docs/VERIFICA.md`.
 
+Aggiornamento: tolti i riquadri [DA CONFERMARE] dal sito; Menu e Serate nascosti finché non
+ci sono contenuti veri (DECISIONI.md P2–P3). Nulla è stato inventato.
+
 ## Cosa controllare per primo
-1. **Orari e telefono**: vengono solo dal brief. Il sito dice "Aperto ora" o "Chiuso ora" in
-   base a quegli orari: se sono sbagliati, il sito afferma una cosa falsa in prima schermata.
+1. **Orari e telefono**: vengono solo dal brief e ora sul sito **sembrano certi** (resta solo una
+   nota nel piè di pagina). Il sito dice "Aperto ora" o "Chiuso ora" in base a quegli orari: se
+   sono sbagliati, afferma una cosa falsa in prima schermata a chiunque abbia il link.
 2. **Data di apertura**: brief "settembre 2026", ma vivoin.it riporta un evento al bar il
    12/06/2026 e lo dice "di recente apertura". Non usata nel sito, ma va chiarita.
 3. **Instagram**: due nomi diversi (brief @docksdorawinebar, locandina @winebardocksdora).

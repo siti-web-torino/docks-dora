@@ -35,7 +35,6 @@
   --insegna: #a8211f;      /* fondo pulsante Chiama (bianco 7.2:1) */
   --ambra: #e0a458;        /* luce della porta: link e azione secondaria */
   --oro: #b1a995;          /* filetti */
-  --dc: #f2c94c;           /* riquadri DA CONFERMARE */
 
   /* Caratteri */
   --serif: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
@@ -122,39 +121,8 @@ a { color: var(--ambra); text-underline-offset: 0.2em; }
 }
 .salta:focus { top: var(--s-4); }
 
-/* Riquadri e etichette DA CONFERMARE */
-.dc {
-  display: inline-block;
-  font-family: var(--sans);
-  font-size: var(--t-0);
-  font-weight: 500;
-  font-style: normal;
-  letter-spacing: 0.04em;
-  line-height: 1.3;
-  color: var(--dc);
-  border: 1px dashed currentColor;
-  padding: 0.05em 0.45em;
-  vertical-align: middle;
-  white-space: nowrap;
-}
-.dc::before { content: "["; }
-.dc::after { content: "]"; }
-
-.riquadro-dc {
-  border: 1px dashed var(--dc);
-  padding: var(--s-5);
-  display: grid;
-  gap: var(--s-4);
-  justify-items: start;
-  max-width: 36rem;
-}
-.riquadro-dc__etichetta {
-  color: var(--dc);
-  font-size: var(--t-0);
-  font-weight: 500;
-  letter-spacing: 0.08em;
-}
-.riquadro-dc--piccolo { padding: var(--s-4); gap: var(--s-2); font-size: 0.95rem; color: var(--crema-2); }
+/* Sezioni e link che compaiono solo quando ci sono dati (vedi js/main.js) */
+[hidden] { display: none !important; }
 
 .avviso-demo {
   background: #1a1410;
@@ -290,7 +258,6 @@ a { color: var(--ambra); text-underline-offset: 0.2em; }
   font-weight: 500;
   line-height: 1.35;
 }
-.stato .dc { grid-column: 2; justify-self: start; }
 .stato__luce {
   width: 0.7rem;
   height: 0.7rem;
@@ -344,7 +311,6 @@ a { color: var(--ambra); text-underline-offset: 0.2em; }
   gap: var(--s-2);
   align-items: center;
 }
-.titolo-piccolo .dc { letter-spacing: 0.04em; text-transform: none; }
 
 /* Il posto */
 .posto { background: var(--mattone); }
@@ -406,7 +372,6 @@ a { color: var(--ambra); text-underline-offset: 0.2em; }
 .dove__blocco .titolo-sezione { margin-bottom: 0; }
 .dove__indirizzo { font-style: normal; font-size: var(--t-3); font-family: var(--serif); line-height: 1.25; }
 .dove__trovarlo { color: var(--crema-2); max-width: 30rem; }
-.dove__trovarlo .dc { margin-left: var(--s-1); }
 
 .orari { border-collapse: collapse; width: 100%; max-width: 22rem; font-variant-numeric: tabular-nums; }
 .orari th, .orari td {
@@ -446,7 +411,6 @@ a { color: var(--ambra); text-underline-offset: 0.2em; }
 .piede__griglia { display: grid; grid-template-columns: auto 1fr; gap: var(--s-2) var(--s-4); align-items: start; }
 .piede__logo { width: 56px; height: 56px; clip-path: circle(49.6% at 47.9% 48.4%); }
 .piede__nome { color: var(--crema); font-family: var(--serif); font-size: var(--t-2); }
-.piede .dc { margin-top: var(--s-2); }
 .piede__note { grid-column: 1 / -1; margin-top: var(--s-4); font-size: var(--t-0); }
 
 /* Barra fissa da telefono */

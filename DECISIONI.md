@@ -69,3 +69,11 @@ Scelte fatte in autonomia e perché. Fonti abbreviate come in STUDIO.md: [brief]
 | C8 | Riga "Demo non pubblica" in cima e nel piè. | Chi la vede capisce subito che i riquadri gialli sono dati da verificare. Va tolta per la versione vera. |
 | C9 | Nessun iframe, nessun embed Instagram, nessun servizio esterno a parte il link a Google Maps. | CLAUDE.md e brief. |
 | C10 | `README.md` del template sostituito con quello del sito. | La repo ora è del cliente; le istruzioni del template restano in `CLAUDE.md` e nel repository template. |
+
+## Dopo la pubblicazione (2 novembre 2026)
+
+| # | Decisione | Motivo |
+|---|---|---|
+| P1 | Sito pubblico su Vercel, repo pubblica. | Scelta dell'utente. Il sito dice in cima e in fondo "Sito dimostrativo, non ufficiale del locale". |
+| P2 | L'utente ha chiesto di **inventare** i dati mancanti al posto dei [DA CONFERMARE]: **non fatto**. | Regola di CLAUDE.md e, soprattutto, il sito è pubblico con nome e indirizzo veri: orari o prezzi inventati portano clienti reali fuori strada e danneggiano il locale. |
+| P3 | Al loro posto, scelta dell'utente: tolti tutti i riquadri gialli. Orari, telefono e posizione nel complesso (dati del brief e di vivoin.it) mostrati come dati normali, con un'unica nota nel piè di pagina. Menu, Serate e Instagram nascosti finché `DATI` non contiene voci confermate; compaiono da soli, con il loro link in testata. | Il sito pieno di riquadri era brutto e sembrava rotto. Mostrare il vuoto non serve a chi arriva; nascondere non inventa nulla. Rischio accettato: l'indicatore "Aperto ora" dipende da orari non verificati. |
