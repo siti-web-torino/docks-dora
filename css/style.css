@@ -614,3 +614,73 @@ a { color: var(--ambra); text-underline-offset: 0.2em; }
   .insegna__nome { animation: none; }
   .bottone, .barra, .barra--nascosta { transition: none; }
 }
+
+/* ===== MOCKUP PER IL GESTORE (solo ramo mockup-gestore) ===== */
+.esempio {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: var(--t-0);
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.3;
+  color: #1a1208;
+  background: #f2c94c;
+  padding: 0.1em 0.5em;
+  vertical-align: middle;
+  border-radius: 2px;
+}
+.avviso-demo--mockup { background: #2a2208; color: var(--crema); line-height: 1.5; }
+.titolo-sezione .esempio { margin-left: var(--s-2); }
+.serata .esempio { justify-self: start; margin-top: var(--s-1); }
+
+.striscia { position: relative; margin: 0; }
+.striscia img { width: 100%; height: 18rem; object-fit: cover; object-position: 50% 60%; }
+.striscia figcaption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: var(--s-6) var(--gutter) var(--s-3);
+  font-size: var(--t-0);
+  color: var(--crema-2);
+  background: linear-gradient(0deg, rgba(15, 11, 9, 0.9), transparent);
+}
+
+.menu__nota { color: var(--crema-2); margin: calc(-1 * var(--s-3)) 0 var(--s-6); max-width: 40rem; }
+.carta { display: grid; gap: var(--s-7); }
+.carta__foto { margin: 0 0 var(--s-5); }
+.carta__foto img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border: 1px solid var(--mattone-bordo); }
+.carta__foto figcaption { margin-top: var(--s-2); font-size: var(--t-0); color: var(--crema-2); line-height: 1.4; }
+.carta__titolo {
+  margin: 0 0 var(--s-3);
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: var(--t-3);
+}
+.carta__gruppo {
+  margin: var(--s-5) 0 var(--s-2);
+  font-size: var(--t-0);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ambra);
+}
+.carta__voci { list-style: none; margin: 0; padding: 0; }
+.carta__voci li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--s-4);
+  padding-block: var(--s-2);
+  border-bottom: 1px dotted var(--mattone-bordo);
+}
+.carta__prezzo { font-family: var(--serif); white-space: nowrap; color: var(--crema); }
+.carta__piede { margin-top: var(--s-4); color: var(--crema-2); font-style: italic; font-family: var(--serif); }
+
+@media (min-width: 640px) {
+  .striscia img { height: 24rem; }
+}
+@media (min-width: 960px) {
+  .carta { grid-template-columns: 1fr 1fr; column-gap: var(--s-8); }
+  .striscia img { height: 30rem; }
+}

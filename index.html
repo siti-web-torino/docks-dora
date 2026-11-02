@@ -16,7 +16,10 @@
 <body>
   <a class="salta" href="#contenuto">Vai al contenuto</a>
 
-  <div class="avviso-demo" role="note">Sito dimostrativo, non ufficiale del locale.</div>
+  <div class="avviso-demo avviso-demo--mockup" role="note">
+    <strong>Mockup per il gestore.</strong> Carta dei vini, piatti, prezzi, date e foto con l'etichetta
+    <span class="esempio">esempio</span> sono inventati o presi da Wikimedia Commons: servono solo a far vedere come verrebbe il sito con i contenuti veri.
+  </div>
 
   <header class="testata">
     <div class="contenitore testata__riga">
@@ -26,7 +29,7 @@
       <span class="testata__nome" aria-hidden="true">Docks Dora</span>
       <nav class="testata__nav" aria-label="Sezioni">
         <a href="#posto">Il posto</a>
-        <a href="#menu" data-link="menu" hidden>Menu</a>
+        <a href="#menu" data-link="menu">Menu</a>
         <a href="#serate" data-link="serate" hidden>Serate</a>
         <a href="#dove">Dove e quando</a>
       </nav>
@@ -106,10 +109,69 @@
 
     <!-- Menu e Serate restano nascoste finché DATI.menu / DATI.eventi (in js/main.js)
          non contengono voci confermate dal locale -->
-    <section id="menu" class="sezione menu" aria-labelledby="titolo-menu" hidden>
+    <!-- MOCKUP: striscia d'atmosfera con foto di esempio -->
+    <figure class="striscia">
+      <img src="img/esempio/luci.webp" width="1600" height="1067" loading="lazy"
+           alt="Foto di esempio: un calice di bianco su un tavolo, luci calde sfocate sullo sfondo.">
+      <figcaption>
+        <span class="esempio">esempio</span>
+        Qui va una foto vera della sala, di sera. Foto: Geoff Peters, “Wine and lights”, CC BY 2.0, Wikimedia Commons.
+      </figcaption>
+    </figure>
+
+    <!-- MOCKUP: carta e cucina inventate per mostrare l'impaginazione -->
+    <section id="menu" class="sezione menu" aria-labelledby="titolo-menu">
       <div class="contenitore">
-        <h2 id="titolo-menu" class="titolo-sezione">Cosa si beve e si mangia</h2>
-        <ul class="serate__elenco" data-menu></ul>
+        <h2 id="titolo-menu" class="titolo-sezione">Cosa si beve e si mangia <span class="esempio">esempio</span></h2>
+        <p class="menu__nota">Carta, piatti e prezzi di questa sezione sono inventati: vanno sostituiti con quelli del locale.</p>
+
+        <div class="carta">
+          <div class="carta__colonna">
+            <figure class="carta__foto">
+              <img src="img/esempio/calici.webp" width="1600" height="1067" loading="lazy"
+                   alt="Foto di esempio: vino rosso versato in una fila di calici.">
+              <figcaption><span class="esempio">esempio</span> Foto: Maria Eklind, “Wine glasses in the bar”, CC BY-SA 2.0, Wikimedia Commons (ritagliata e ridotta).</figcaption>
+            </figure>
+            <h3 class="carta__titolo">Al calice</h3>
+            <h4 class="carta__gruppo">Bollicine</h4>
+            <ul class="carta__voci">
+              <li><span>Alta Langa DOCG Brut</span><span class="carta__prezzo">€ 8</span></li>
+              <li><span>Valdobbiadene Prosecco Superiore DOCG</span><span class="carta__prezzo">€ 6</span></li>
+            </ul>
+            <h4 class="carta__gruppo">Bianchi</h4>
+            <ul class="carta__voci">
+              <li><span>Roero Arneis DOCG</span><span class="carta__prezzo">€ 6</span></li>
+              <li><span>Langhe Nascetta DOC</span><span class="carta__prezzo">€ 7</span></li>
+              <li><span>Gavi DOCG</span><span class="carta__prezzo">€ 6</span></li>
+            </ul>
+            <h4 class="carta__gruppo">Rossi</h4>
+            <ul class="carta__voci">
+              <li><span>Barbera d'Asti DOCG</span><span class="carta__prezzo">€ 6</span></li>
+              <li><span>Dogliani DOCG</span><span class="carta__prezzo">€ 5</span></li>
+              <li><span>Langhe Nebbiolo DOC</span><span class="carta__prezzo">€ 7</span></li>
+              <li><span>Salice Salentino Negroamaro DOC</span><span class="carta__prezzo">€ 6</span></li>
+            </ul>
+            <p class="carta__piede">Bottiglie da € 24. Chiedi cosa c'è aperto stasera.</p>
+          </div>
+
+          <div class="carta__colonna">
+            <figure class="carta__foto">
+              <img src="img/esempio/tagliere.webp" width="1400" height="907" loading="lazy"
+                   alt="Foto di esempio: tagliere di ardesia con salumi, pane tostato, insalata e cetriolini.">
+              <figcaption><span class="esempio">esempio</span> Foto: Daderot, “Charcuterie board - Massachusetts”, CC0, Wikimedia Commons.</figcaption>
+            </figure>
+            <h3 class="carta__titolo">In cucina</h3>
+            <ul class="carta__voci">
+              <li><span>Tagliere di salumi piemontesi</span><span class="carta__prezzo">€ 14</span></li>
+              <li><span>Tagliere di formaggi, mostarda e miele</span><span class="carta__prezzo">€ 14</span></li>
+              <li><span>Vitello tonnato</span><span class="carta__prezzo">€ 12</span></li>
+              <li><span>Battuta al coltello</span><span class="carta__prezzo">€ 13</span></li>
+              <li><span>Peperoni e bagna càuda</span><span class="carta__prezzo">€ 10</span></li>
+              <li><span>Focaccia calda e acciughe al verde</span><span class="carta__prezzo">€ 8</span></li>
+            </ul>
+            <p class="carta__piede">Il menu cambia spesso: la lista del giorno è alla lavagna.</p>
+          </div>
+        </div>
       </div>
     </section>
 

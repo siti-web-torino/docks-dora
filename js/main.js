@@ -46,8 +46,9 @@ const DATI = {
   // Serate: nomi dal brief. Sul sito compaiono solo quelle con confermato: true
   // (data: "2026-11-11"). Se nessuna è confermata, la sezione Serate non c'è.
   eventi: [
-    { nome: "San Martino alla Salentina", dettaglio: "Negroamaro e panini", data: null, confermato: false },
-    { nome: "Aperisharing", dettaglio: null, data: null, confermato: false },
+    // MOCKUP: date e dettagli di esempio (esempio: true => etichetta "esempio")
+    { nome: "San Martino alla Salentina", dettaglio: "Negroamaro e panini", data: "2026-11-11", confermato: true, esempio: true },
+    { nome: "Aperisharing", dettaglio: "Taglieri da dividere al tavolo", data: "2026-11-20", confermato: true, esempio: true },
   ],
 
   // Menu: una voce per riga, solo cose confermate dal locale.
@@ -229,6 +230,12 @@ const DATI = {
         t.className = "serata__dettaglio";
         t.textContent = capitale(fmt.format(new Date(ev.data + "T12:00:00")));
         li.append(t);
+      }
+      if (ev.esempio) {
+        const e = document.createElement("span");
+        e.className = "esempio";
+        e.textContent = "esempio";
+        li.append(e);
       }
       ul.append(li);
     });
