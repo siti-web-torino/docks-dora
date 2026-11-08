@@ -35,7 +35,7 @@ await fs.writeFile(path.join(output, 'index.html'), html);
 await fs.copyFile(path.join(root, 'robots.txt'), path.join(output, 'robots.txt'));
 for (const [, reference] of html.matchAll(/(?:src|href)="([^"#]+)"/g)) {
   if (/^(https?:|tel:)/.test(reference)) continue;
-  const file = path.resolve(output, reference);
+  const file = path.resolve(output, reference.split(/[?#]/)[0]);
   if (!file.startsWith(output + path.sep)) throw Error('Percorso fuori output');
   await fs.access(file);
 }
