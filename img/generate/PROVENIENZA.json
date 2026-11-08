@@ -1,0 +1,19 @@
+{
+  "generatore": "Strumento di generazione immagini integrato",
+  "data": "2026-11-08",
+  "uso": "Immagini illustrative provvisorie, non fotografie documentarie del locale",
+  "prompt": [
+    {
+      "name": "calice",
+      "prompt": "Use case: photorealistic-natural. Asset type: editorial photograph for a Turin industrial wine-bar website, a provisional atmospheric visual, not a documentary photo of any actual venue. Create a single cinematic landscape photograph, approximately 3:2. Close view of deep red wine being poured from an unlabelled dark bottle into an elegant thin-stemmed wine glass on a worn dark walnut tabletop. Only a small naturally cropped hand may be visible holding the bottle, no faces or people otherwise. One other empty glass softly out of focus, brick and blackened steel in the distant background. Warm amber sidelight with a very subtle red neon reflection at the edge of the glass, warm charcoal shadows, muted burgundy and ivory highlights. Candid refined Italian wine-bar mood, tactile materials, realistic refraction and accurate liquid stream, 50mm lens, shallow but believable depth of field, natural film grain, intimate rather than luxury-advertising gloss. Subject centered with breathing room for responsive cropping. No lettering, logos, readable wine labels, watermarks, collage, candles or extra decoration. All image, no border or website UI."
+    },
+    {
+      "name": "tavola",
+      "prompt": "Use case: photorealistic-natural. Asset type: temporary atmospheric editorial photograph for the same warm industrial wine-bar website. Create one cinematic landscape photograph, approximately 3:2. An intimate close-up of a small dark walnut table with a simple dark ceramic plate of rustic bread, a few generic cheese pieces and a little bowl of olives, next to two thin-stemmed wine glasses, one with a modest serving of red wine. This is an illustrative mood shot, not an actual menu item. Tight considered composition with imperfect natural placement, no elaborate spread. Distant softly blurred brown brick and blackened metal. Warm amber side lighting, warm charcoal shadows, tiny muted red neon reflections on glass, burgundy and ivory accents. Same filmic color grading as an intimate Turin industrial wine bar, realistic food textures, no stylized saturation, 50mm lens, subtle natural grain. Subject centered for responsive cropping, plate fully inside the image, no people, hands, lettering, logos, readable labels, watermarks, collage or website UI."
+    },
+    {
+      "name": "sera",
+      "prompt": "Use case: photorealistic-natural. Asset type: provisional atmospheric editorial image for an industrial Turin wine-bar website; it must not depict a recognizable real venue. Single cinematic landscape photograph, approximately 3:2. Intimate tightly framed still-life of a warm amber small table lamp on a dark walnut wine-bar ledge, two elegant empty thin-stemmed glasses and a few unlabelled dark wine bottles, with rough brown brick and a slim blackened steel structural detail behind. No wide room or invented architecture, focus on textures and objects. Pools of amber light, warm charcoal negative space, a subtle diffuse red neon reflection from outside the frame, tactile brick and wood, quiet evening mood. Photorealistic, editorial 50mm lens, gentle depth of field and natural grain, muted burgundy and cream reflections, no decorative clutter. Balanced composition usable as a wide website section crop. No people, signage, lettering, logos, readable labels, watermark, collage, candles, or website UI."
+    }
+  ]
+}

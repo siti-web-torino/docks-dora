@@ -5,13 +5,41 @@ dentro i Docks Dora. **Demo non ufficiale**, pubblicata su Vercel con deploy aut
 branch `main` (ogni push va online). `noindex` e `robots.txt` chiuso. Il locale non è stato
 contattato.
 
-HTML, CSS e JavaScript puri, nessuna build. Generato dal template `template-vetrina`
-(regole in `CLAUDE.md`).
+HTML, CSS e JavaScript puri, senza framework o dipendenze runtime. Il restyling dell’8 novembre
+2026 aggiunge un confezionamento statico con Node per applicare il manifest delle immagini e
+pubblicare solo i file necessari in `dist/`. Generato dal template `template-vetrina`
+(regole in `CLAUDE.md`; aggiornamenti autorizzati in `DECISIONI.md`).
 
-## Aprire il sito
-- Doppio clic su `index.html` (si apre nel browser), oppure
-- da un terminale in questa cartella: `python -m http.server 8765` e poi
-  <http://localhost:8765/>.
+## Aprire e verificare il sito
+Node 22 o successivo, nessuna installazione necessaria:
+
+```sh
+npm run build
+npm start
+npm run check
+npm test
+```
+
+L’anteprima su `http://127.0.0.1:4174/` serve la stessa cartella `dist/` pubblicata da Vercel.
+Il build applica `img/immagini.json`, controlla i riferimenti e copia solo HTML, CSS, JS,
+font, immagini ottimizzate e robots.txt. Originali, strumenti e documenti restano fuori dal sito.
+L’HTML conserva contenuti e immagini come fallback statico; gli script vanno provati tramite
+il server locale, perché il file degli orari è un modulo.
+
+## Sostituire le immagini provvisorie
+Le immagini generate sono `calice`, `tavola` e `sera`, in `img/generate/`, con due versioni
+WebP da 640 e 1280 pixel. I riferimenti per la pubblicazione sono centralizzati in
+`img/immagini.json`: percorso, varianti, dimensioni, testo alternativo, punto di ritaglio e
+indicatore `generata`. Modifica questo file, poi esegui `npm run build`.
+
+Per usare una foto del titolare puoi caricare un nuovo file e cambiare `src`, `width`,
+`height`, `alt`, `position` e `generata: false`; `srcset` può essere una stringa vuota se
+hai una sola versione. Layout e animazioni non cambiano. La nota sulle immagini illustrative
+viene aggiornata automaticamente e scompare quando tutte e tre sono reali.
+
+`img/generate/PROVENIENZA.json` contiene prompt e provenienza, non viene pubblicato nel sito.
+Le nuove immagini evocano un’atmosfera e non documentano interni, vini o piatti del locale.
+La facciata, l’ingresso e il logo originali sono conservati.
 
 ## Dove si cambiano i contenuti
 Tutti i dati modificabili stanno nell'oggetto `DATI` in cima a **`js/main.js`**:
@@ -57,6 +85,9 @@ L'indicatore "Aperto ora / Chiuso ora" si calcola da `orari.giorni` con l'ora di
 
 ## Cartelle
 - `index.html`, `css/style.css`, `js/main.js`: il sito.
+- `css/restyling.css`, `js/movimento.js`: direzione visiva e animazioni accessibili.
+- `js/orari.mjs`: logica orari pura e verificabile, nel fuso Europe/Rome.
+- `img/immagini.json`, `img/generate/`: manifest e immagini illustrative provvisorie.
 - `img/`: immagini ottimizzate (WebP senza EXIF). `img-originali/`: originali intatti.
   `facciata-folla.png` è esclusa da git (persone riconoscibili).
 - `fonts/`: Bodoni Moda e Jost, licenza SIL OFL (testi in `fonts/OFL-*.txt`).

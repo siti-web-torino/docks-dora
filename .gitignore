@@ -3,3 +3,6 @@ img-originali/facciata-folla.png
 
 # Strumenti locali (non fanno parte del sito)
 strumenti/
+node_modules/
+dist/
+.vercel/

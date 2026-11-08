@@ -70,6 +70,16 @@ Scelte fatte in autonomia e perché. Fonti abbreviate come in STUDIO.md: [brief]
 | C9 | Nessun iframe, nessun embed Instagram, nessun servizio esterno a parte il link a Google Maps. | CLAUDE.md e brief. |
 | C10 | `README.md` del template sostituito con quello del sito. | La repo ora è del cliente; le istruzioni del template restano in `CLAUDE.md` e nel repository template. |
 
+## Restyling autorizzato dall’utente — 8 novembre 2026
+
+- **R1 — Immagini generate.** Il nuovo incarico autorizza esplicitamente tre immagini di atmosfera provvisorie sul sito pubblico, da sostituire con materiali dei titolari. Questa indicazione sostituisce il precedente limite alle sole immagini fornite. Non sono documentazione degli interni o del menu: la pagina le identifica come illustrative e gli alt lo precisano. Nessun vino, piatto, evento o prezzo è stato aggiunto ai dati del locale.
+- **R2 — Identità.** Conservati logo, facciata e ingresso. Il rosso del neon si accende in un’unica progressione senza sfarfallio. Titolo ampio, cornici lineari e fotografia reale entro 310 px di larghezza; su telefono la foto segue il testo a tutta larghezza utile, invece di essere una striscia. La trama artificiale dei mattoni è sostituita da superfici scure e dettagli fotografici.
+- **R3 — Immagini sostituibili.** Manifest unico `img/immagini.json`, varianti 640/1280 WebP, ritagli e alt centralizzati. Il campo `generata` controlla anche la nota sulla pagina. Prompt e provenienza in `img/generate/PROVENIENZA.json`, esclusi dal sito pubblicato. Originali PNG consegnati a parte.
+- **R4 — Confezionamento statico.** L’incarico richiede verifica della build e riferimenti alle immagini centralizzati. Aggiunto un piccolo build Node, senza framework o dipendenze runtime: applica il manifest e copia solo gli asset del sito in `dist/`. Strumenti, originali, test e documentazione non vengono pubblicati. I file restano HTML/CSS/JS e usano percorsi relativi.
+- **R5 — Movimento.** Entrate di opacità e traslazione limitata, foto con deriva massima di 8 px, hover discreti. Un frame per evento, nessun ciclo decorativo infinito. Nessuna classe nasconde contenuti in attesa di JavaScript. La preferenza reduced-motion viene rispettata anche quando cambia durante la visita.
+- **R6 — Uso reale.** Header con navigazione sempre disponibile, destinazioni delle ancore focalizzabili, barra rapida che non si nasconde mentre contiene il focus. Orari estratti in funzioni pure Europe/Rome; la tabella cambia giorno anche se la scheda rimane aperta a mezzanotte. Telefono, Maps, istruzioni, noindex e avviso demo conservati; menu, serate e Instagram rimangono subordinati ai dati confermati.
+- **R7 — Verifica.** 13 test automatici su orari, cambio ora, contenuti, asset e movimento; check di sintassi e build statico. Verifica grafica e funzionale nel browser su 320, 390, 600, 601, 768, 900, 1024 e 1440 px. Il nuovo incarico autorizza commit/push e pubblicazione dopo questi controlli; non si usa il ramo separato `mockup-gestore`.
+
 ## Dopo la pubblicazione (2 novembre 2026)
 
 | # | Decisione | Motivo |

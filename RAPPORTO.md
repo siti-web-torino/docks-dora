@@ -1,5 +1,33 @@
 # RAPPORTO: Docks Dora Wine Bar (demo)
 
+## Aggiornamento 8 novembre 2026 — restyling
+
+Nuova hero con accensione senza sfarfallio, fotografia reale ampia su mobile, tre immagini
+illustrative generate e sostituibili, galleria editoriale, animazioni in scroll e interazioni.
+Logo, foto dell’ingresso e tutti i dati del locale sono conservati. Menu e serate non
+confermati restano nascosti. Dettagli e motivazioni: `DECISIONI.md`, sezione Restyling.
+
+Controlli locali: 13 test superati, sintassi valida e build statica pronta. La verifica
+grafica copre desktop, tablet e mobile; reduced-motion è verificato con test di logica e
+regole CSS. Il sito resta fruibile senza JavaScript. Questi controlli non equivalgono a un
+audit completo con lettore di schermo o a una misurazione Lighthouse.
+
+Le immagini provvisorie sono `calice`, `tavola` e `sera`, in `img/generate/`; i riferimenti
+si modificano in `img/immagini.json`. La generazione è stata espressamente richiesta
+dall’utente e riguarda solo immagini di atmosfera, non fatti o fotografie documentarie.
+Il build esclude gli originali e la documentazione dalla pubblicazione.
+
+Restano da richiedere: foto autentiche ad alta definizione di facciata, sala, bancone e
+proposta gastronomica; carta vini/menu e prezzi; conferma di orari, telefono, collocazione
+nel complesso, account Instagram, eventi e dati aziendali. Il risultato va mostrato al
+titolare e a 2–3 persone reali: gli schemi di design non misurano la clientela del locale.
+
+Il progetto Vercel esistente appartiene a `coste1`, mentre il connettore disponibile usa
+un altro account. L’esito della pubblicazione va seguito tramite il controllo Vercel
+su GitHub e verificando il dominio pubblico; non viene creato un progetto scollegato.
+
+Le sezioni seguenti conservano lo storico delle verifiche e delle decisioni precedenti.
+
 Stato: **demo pubblicata su Vercel con link pubblico** (scelta dell'utente, 2 novembre 2026),
 deploy automatico dal branch `main` di `siti-web-torino/docks-dora` (repo pubblica, scelta
 dell'utente). Resta `noindex` + `robots.txt` chiuso. Il sito dice in cima e nel piè di pagina

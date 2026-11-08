@@ -1,0 +1,29 @@
+{
+  "calice": {
+    "src": "img/generate/calice-1280.webp",
+    "srcset": "img/generate/calice-640.webp 640w, img/generate/calice-1280.webp 1280w",
+    "width": 1280,
+    "height": 853,
+    "alt": "Immagine illustrativa: vino rosso versato in un calice, tra legno scuro e riflessi ambrati",
+    "position": "50% 50%",
+    "generata": true
+  },
+  "tavola": {
+    "src": "img/generate/tavola-1280.webp",
+    "srcset": "img/generate/tavola-640.webp 640w, img/generate/tavola-1280.webp 1280w",
+    "width": 1280,
+    "height": 853,
+    "alt": "Immagine illustrativa: pane, formaggi e olive su un tavolino con due calici; non rappresenta il menu del locale",
+    "position": "50% 62%",
+    "generata": true
+  },
+  "sera": {
+    "src": "img/generate/sera-1280.webp",
+    "srcset": "img/generate/sera-640.webp 640w, img/generate/sera-1280.webp 1280w",
+    "width": 1280,
+    "height": 853,
+    "alt": "Immagine illustrativa: una lampada calda, calici e bottiglie senza etichette su legno, davanti a una parete di mattoni",
+    "position": "48% 50%",
+    "generata": true
+  }
+}

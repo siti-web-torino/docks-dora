@@ -1,3 +1,5 @@
+import {adessoATorino, statoApertura as calcolaStatoApertura} from "./orari.mjs";
+
 /* =====================================================================
    DATI DEL LOCALE: tutto quello che si cambia sta qui.
    "DA VERIFICARE" nei commenti = dato non ancora confermato dal locale
@@ -70,56 +72,11 @@ const DATI = {
     if (s) s.hidden = false;
     tutti(`[data-link="${id}"]`).forEach((a) => (a.hidden = false));
   };
-  const minuti = (hhmm) => {
-    const [h, m] = hhmm.split(":").map(Number);
-    return h * 60 + m;
-  };
   const ora = (hhmm) => (hhmm === "24:00" ? "24:00" : hhmm);
   const capitale = (s) => s.charAt(0).toUpperCase() + s.slice(1);
 
-  // Ora attuale a Torino, qualunque sia il fuso del telefono
-  function adessoATorino() {
-    const parti = new Intl.DateTimeFormat("en-GB", {
-      timeZone: "Europe/Rome",
-      weekday: "short",
-      hour: "2-digit",
-      minute: "2-digit",
-      hourCycle: "h23",
-    }).formatToParts(new Date());
-    const val = (t) => parti.find((p) => p.type === t).value;
-    const giorno = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(val("weekday"));
-    return { giorno, min: Number(val("hour")) * 60 + Number(val("minute")) };
-  }
-
-  // Intervallo [inizio, fine] in minuti, con fine oltre la mezzanotte se serve
-  function intervallo(fascia) {
-    const a = minuti(fascia[0]);
-    let b = minuti(fascia[1]);
-    if (b <= a) b += 24 * 60;
-    return [a, b];
-  }
-
   function statoApertura() {
-    const g = DATI.orari.giorni;
-    const { giorno, min } = adessoATorino();
-
-    // Ancora aperti dalla sera prima (chiusura dopo mezzanotte)
-    const ieri = g[(giorno + 6) % 7];
-    if (ieri) {
-      const [, fine] = intervallo(ieri);
-      if (fine > 1440 && min < fine - 1440) return { aperto: true, fino: ieri[1] };
-    }
-    const oggi = g[giorno];
-    if (oggi) {
-      const [inizio, fine] = intervallo(oggi);
-      if (min >= inizio && min < fine) return { aperto: true, fino: oggi[1] };
-      if (min < inizio) return { aperto: false, quando: "oggi", da: oggi[0] };
-    }
-    for (let i = 1; i <= 7; i++) {
-      const d = (giorno + i) % 7;
-      if (g[d]) return { aperto: false, quando: i === 1 ? "domani" : GIORNI[d], da: g[d][0] };
-    }
-    return null;
+    return calcolaStatoApertura(DATI.orari.giorni);
   }
 
   function mostraStato() {
@@ -252,9 +209,16 @@ const DATI = {
     const barra = document.querySelector(".barra");
     const azioni = document.querySelector(".azioni");
     if (!barra || !azioni || !("IntersectionObserver" in window)) return;
+    let azioniVisibili = false;
+    const aggiornaBarra = () => {
+      barra.classList.toggle("barra--nascosta", azioniVisibili && !barra.contains(document.activeElement));
+    };
     new IntersectionObserver(([voce]) => {
-      barra.classList.toggle("barra--nascosta", voce.isIntersecting);
+      azioniVisibili = voce.isIntersecting;
+      aggiornaBarra();
     }).observe(azioni);
+    barra.addEventListener("focusin", aggiornaBarra);
+    barra.addEventListener("focusout", () => queueMicrotask(aggiornaBarra));
   }
 
   mostraContatti();
@@ -264,5 +228,17 @@ const DATI = {
   mostraStato();
   mostraEventi();
   mostraMenu();
-  setInterval(mostraStato, 60 * 1000);
+  let giornoTabella = adessoATorino().giorno;
+  const aggiornaOra = () => {
+    mostraStato();
+    const oggi = adessoATorino().giorno;
+    if (oggi !== giornoTabella) {
+      giornoTabella = oggi;
+      mostraOrari();
+    }
+  };
+  setInterval(aggiornaOra, 60 * 1000);
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) aggiornaOra();
+  });
 })();

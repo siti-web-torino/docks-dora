@@ -280,16 +280,9 @@ a { color: var(--ambra); text-underline-offset: 0.2em; }
   letter-spacing: 0.01em;
   color: var(--neon);
   text-shadow: 0 0 6px rgba(224, 71, 74, 0.55), 0 0 22px rgba(224, 71, 74, 0.35);
-  animation: accensione 1.6s ease-out 0.2s both;
+  /* L'accensione progressiva, senza sfarfallio, è definita in restyling.css. */
 }
 
-@keyframes accensione {
-  0%   { opacity: 0.25; text-shadow: none; }
-  12%  { opacity: 1; }
-  18%  { opacity: 0.4; }
-  26%  { opacity: 1; }
-  100% { opacity: 1; }
-}
 
 .stato {
   display: grid;

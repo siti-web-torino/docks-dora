@@ -1,0 +1,267 @@
+/* Docks Dora · luce, vetro e mattone. Editorial layer over the existing site. */
+:root {
+  --notte: #141310;
+  --mattone: #211b17;
+  --mattone-bordo: #4c3b2f;
+  --crema: #f1eade;
+  --crema-2: #c7baaa;
+  --neon: #ff796b;
+  --neon-testo: #ff8a78;
+  --insegna: #9d2927;
+  --ambra: #e6b77b;
+  --oro: #ad8c66;
+  --max: 80rem;
+  --gutter: clamp(22px, 4.6vw, 68px);
+  --ritmo: clamp(64px, 8vw, 116px);
+  --ease: cubic-bezier(.16, 1, .3, 1);
+}
+html { scroll-padding-top: 96px; scrollbar-gutter: stable; }
+body { overflow-x: visible; font-size: 16px; line-height: 1.65; }
+::selection { background: #9d2927; color: #fff9ef; }
+p { text-wrap: pretty; }
+button { font: inherit; }
+.contenitore { max-width: var(--max); }
+.avviso-demo { padding-block: 6px; font-size: 10px; letter-spacing: .045em; background: #201a15; }
+.testata { position: sticky; top: 0; z-index: 40; background: var(--notte); border-color: rgb(230 183 123 / .25); transition: box-shadow .3s var(--ease); }
+.testata.is-scrolled { box-shadow: 0 10px 30px rgb(0 0 0 / .18); }
+.testata__riga { min-height: 76px; gap: 16px; }
+.testata__logo { box-shadow: none; }
+.testata__logo img { width: 44px; height: 44px; }
+.testata__nome { font-size: 19px; letter-spacing: .03em; }
+.testata__nav { gap: 16px; font-size: 12px; }
+.testata__nav a { padding-inline: 0; position: relative; }
+.testata__nav a::after { content: ''; position: absolute; bottom: 9px; inset-inline: 0; height: 1px; background: var(--neon); transform: scaleX(0); transform-origin: left; transition: transform .3s var(--ease); }
+.testata__nav a:hover { text-decoration: none; }
+.testata__nav a:hover::after,.testata__nav a[aria-current]::after { transform: scaleX(1); }
+.bottone { border-radius: 0; font-size: 12px; letter-spacing: .1em; min-height: 50px; padding-inline: 23px; justify-content: space-between; gap: 24px; transition: background-color .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease), transform .3s var(--ease); }
+.bottone--chiama { box-shadow: none; }
+.bottone--chiama:hover { background: #b03430; }
+.bottone--strada { border-color: rgb(230 183 123 / .7); color: var(--crema); }
+.bottone--strada:hover { color: var(--notte); background: var(--ambra); }
+.bottone>span[aria-hidden] { font-size: 21px; line-height: 1; transition: transform .35s var(--ease); }
+.bottone:focus-visible { outline-offset: 6px; }
+:where(a,button,[tabindex]):focus-visible { outline: 2px solid var(--ambra); outline-offset: 5px; border-radius: 0; }
+:where(a,button,[tabindex]) { scroll-margin-block: 105px 120px; }
+.salta { position: fixed; }
+.sopratitolo { display: flex; align-items: center; gap: 14px; font-size: 10px; letter-spacing: .22em; line-height: 1.6; }
+.sopratitolo__linea { width: 34px; height: 1px; background: var(--neon); }
+
+/* L'insegna: a single warm-up, without flicker or a loading overlay. */
+.apertura { padding-block: clamp(32px, 4vw, 58px) 0; background: radial-gradient(ellipse at 83% 39%, #45201b 0, #241713 28%, transparent 57%), var(--notte); }
+.apertura__alone { display: none; }
+.apertura__griglia { grid-template-columns: minmax(0, 1.14fr) minmax(0, 1fr); align-items: center; gap: 5%; }
+.apertura__testo { gap: 19px; padding-block: 10px 28px; }
+.insegna { gap: 10px; font-weight: 500; }
+.insegna__wine { font-size: 27px; letter-spacing: .035em; }
+.insegna__wine em { color: var(--crema); }
+.insegna__nome { display: grid; gap: 2px; font-size: clamp(76px, 9.2vw, 132px); line-height: .91; letter-spacing: -.035em; color: var(--neon); text-shadow: 0 0 22px rgb(224 71 74 / .18); }
+.insegna__nome>span { display: block; }
+.apertura__riassunto { font-size: 21px; line-height: 1.45; margin-top: 7px; color: var(--crema); }
+.stato { font-size: 14px; gap: 10px; letter-spacing: .01em; }
+.stato__luce { width: 6px; height: 6px; background: #a68d74; }
+.stato--aperto .stato__luce { background: var(--neon); box-shadow: 0 0 10px rgb(255 121 107 / .35); }
+.apertura__dove { font-size: 17px; line-height: 1.6; margin-top: 1px; }
+.apertura__dove [data-campo=complesso] { font-size: 14px; }
+.azioni { grid-template-columns: repeat(2, max-content); gap: 12px; margin-top: 2px; }
+.azioni .bottone { width: auto; }
+.azioni__nota { font-size: 12px; color: var(--crema-2); margin-top: -7px; }
+.apertura__scena { position: relative; isolation: isolate; width: 100%; max-width: 460px; justify-self: end; }
+.apertura__scena::before { content: ''; position: absolute; z-index: -1; inset: 8% -16% 2%; border: 1px solid rgb(230 183 123 / .13); transform: rotate(5deg); pointer-events: none; }
+.apertura__scena::after { content: ''; position: absolute; z-index: -1; top: 9%; bottom: 8%; left: 8%; right: 5%; border-left: 1px solid rgb(255 121 107 / .27); border-bottom: 1px solid rgb(230 183 123 / .22); transform: translate(-15px, 20px); pointer-events: none; }
+.apertura__etichetta { width: min(100%, 310px); margin: 0 auto 16px; display: flex; justify-content: space-between; gap: 10px; font-size: 8px; letter-spacing: .16em; text-transform: uppercase; color: var(--ambra); }
+.apertura__foto { width: min(100%, 310px); margin: 0 auto; aspect-ratio: 310 / 600; max-height: none; align-self: auto; overflow: hidden; border: 1px solid #8a6244; box-shadow: 0 26px 50px -20px rgb(0 0 0 / .45); background: #281c17; }
+.apertura__foto>img { width: 100%; height: calc(100% + 24px); object-fit: cover; object-position: 50% 55%; border: 0; box-shadow: none; transform: translateY(calc(-12px + var(--photo-shift, 0px))); }
+.apertura__targa { position: absolute; bottom: 65px; right: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; width: 106px; min-height: 124px; padding: 13px 8px; background: var(--crema); color: #37271f; border: 1px solid var(--ambra); outline: 1px solid rgb(230 183 123 / .45); outline-offset: 5px; text-decoration: none; box-shadow: 0 12px 24px rgb(0 0 0 / .2); transition: transform .4s var(--ease); }
+.apertura__targa>span { font-size: 8px; text-transform: uppercase; letter-spacing: .13em; }
+.apertura__targa strong { font: 500 58px/1.05 var(--serif); letter-spacing: -.06em; }
+.apertura__firma { text-align: center; font: italic 400 17px/1.5 var(--serif); margin: 21px 0 0; color: var(--crema-2); }
+.apertura__fondo { display: flex; justify-content: space-between; align-items: center; gap: 22px; padding-block: 24px; margin-top: 35px; position: relative; }
+.apertura__fondo::before { content: ''; position: absolute; top: 0; left: var(--gutter); right: var(--gutter); height: 1px; background: rgb(230 183 123 / .24); }
+.apertura__fondo>span { font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--crema-2); }
+.apertura__fondo i { font-style: normal; color: var(--neon); margin-inline: 14px; }
+.apertura__fondo>a { display: inline-flex; gap: 25px; align-items: center; min-height: 44px; font-size: 12px; text-decoration: none; color: var(--crema); }
+.apertura__fondo>a>span { color: var(--neon); font-size: 22px; }
+
+/* Le tre immagini: gallery, not an invented menu or a new room. */
+.sezione { padding-block: var(--ritmo); border-top-color: rgb(230 183 123 / .18); }
+.posto { background: linear-gradient(115deg, rgb(100 63 35 / .10), transparent 48%), #1a1713; }
+.posto .contenitore { display: grid; grid-template-columns: 1.15fr 1fr; column-gap: 9%; align-items: center; }
+.posto .titolo-sezione { grid-column: 1 / -1; margin-bottom: 24px; font-size: 10px; letter-spacing: .22em; font-family: var(--sans); color: var(--ambra); }
+.claim { grid-column: 1; margin: 0; }
+.claim p { font-size: clamp(43px, 4.8vw, 68px); letter-spacing: -.045em; line-height: 1.12; max-width: 15ch; }
+.claim em { color: var(--neon); }
+.posto__testo { grid-column: 2; grid-row: 2; margin: 0; font-size: 15px; line-height: 1.9; max-width: 40ch; color: var(--crema-2); align-self: end; padding-bottom: 6px; }
+.pilastri { grid-column: 1 / -1; grid-row: 3; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; margin: 53px 0 0; border: 0; align-items: start; }
+.pilastri li { display: block; min-width: 0; padding: 0; border: 0; font-size: 12px; letter-spacing: .02em; }
+.pilastri li:nth-child(2) { padding-top: 46px; }
+.pilastri__foto { width: 100%; aspect-ratio: .91; position: relative; overflow: hidden; background: #302117; }
+.pilastri__foto img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
+.pilastri__dettaglio { display: grid; grid-template-columns: 25px 1fr; position: relative; gap: 12px; align-items: baseline; padding-top: 20px; border-top: 1px solid rgb(230 183 123 / .3); margin-top: 14px; }
+.pilastri__numero { font-size: 10px; color: var(--neon); font-variant-numeric: tabular-nums; }
+.pilastri__icona { position: absolute; right: 0; top: 25px; width: 25px; height: 25px; stroke-width: 1.3; }
+.pilastri__dettaglio>span:last-child { grid-column: 2; padding-right: 26px; }
+.pilastri__parola { font-size: clamp(26px, 2.5vw, 36px); display: block; margin: 0 0 5px; text-transform: none; letter-spacing: -.035em; line-height: 1.3; }
+.immagini-nota { grid-column: 1 / -1; font-size: 10px; color: var(--crema-2); letter-spacing: .015em; line-height: 1.8; margin-top: 30px; }
+
+/* L'indirizzo: functional and specific to this entrance. */
+.dove { background: radial-gradient(ellipse at 10% 70%, rgb(84 44 28 / .15), transparent 55%), var(--notte); }
+.dove__griglia { grid-template-columns: 1.3fr .85fr 1fr; grid-template-areas: 'dove foto orari' 'dove foto contatti'; gap: 36px 5%; align-items: start; }
+.dove__griglia>:nth-child(1) { grid-area: dove; }
+.dove__griglia>:nth-child(2) { grid-area: foto; }
+.dove__griglia>:nth-child(3) { grid-area: orari; }
+.dove__griglia>:nth-child(4) { grid-area: contatti; }
+.dove__blocco { gap: 21px; }
+.dove .titolo-sezione { font-size: clamp(42px, 4.3vw, 61px); line-height: 1.12; letter-spacing: -.045em; max-width: 10ch; }
+.dove .titolo-sezione em { font-weight: 400; color: var(--ambra); }
+.dove__indirizzo { font-size: 21px; line-height: 1.5; }
+.dove__indirizzo [data-campo=complesso] { font-size: 17px; }
+.passi { gap: 16px; font-size: 13px; line-height: 1.85; }
+.passi li { grid-template-columns: 22px 1fr; gap: 12px; }
+.passi li::before { font-size: 25px; text-shadow: none; }
+.neon-piccolo { white-space: normal; text-shadow: none; }
+.dove__foto { margin: 9px 0 0; position: relative; }
+.dove__foto::after { content: ''; position: absolute; inset: 9px -9px -9px 9px; border: 1px solid rgb(230 183 123 / .35); pointer-events: none; }
+.dove__foto img { box-shadow: none; width: 100%; height: auto; }
+.titolo-piccolo { font-size: 10px; letter-spacing: .22em; margin-bottom: 0; }
+.orari { font-size: 14px; max-width: none; }
+.orari th,.orari td { padding-block: 10px; }
+.orari .oggi th::after { font-size: 8px; letter-spacing: .04em; margin-left: 6px; }
+.contatto__tel { font-size: clamp(21px, 2.1vw, 30px); letter-spacing: -.025em; }
+.piede { background: #100f0d; padding-block: 38px; }
+.piede__griglia { grid-template-columns: 56px 1fr; gap: 12px 24px; }
+.piede__nome { font-size: 27px; letter-spacing: -.025em; margin-bottom: 6px; }
+.piede__griglia>div>p:last-child { font-size: 12px; }
+.piede__note { font-size: 10px; line-height: 1.9; max-width: 90ch; margin-top: 17px; }
+.barra { background: #171411; backdrop-filter: none; z-index: 60; }
+.barra .bottone { font-size: 11px; justify-content: center; letter-spacing: .05em; }
+.barra--nascosta { pointer-events: none; }
+.sezione:focus { outline: 0; }
+.sezione:focus-visible { outline: 2px solid var(--ambra); outline-offset: -5px; }
+main[tabindex],.sezione[tabindex] { scroll-margin-top: 0; }
+
+@media (min-width: 960px) { .testata__chiama { min-width: 122px; min-height: 44px; font-size: 10px; } }
+@media (min-width: 900px) and (max-width: 1100px) {
+  .apertura__griglia { gap: 4%; grid-template-columns: 1.1fr 1fr; }
+  .insegna__nome { font-size: 100px; }
+  .apertura__targa { right: -5px; width: 88px; min-height: 108px; }
+  .apertura__targa strong { font-size: 49px; }
+  .azioni { gap: 9px; }.azioni .bottone { font-size: 10px; padding-inline: 16px; gap: 16px; }
+  .dove__griglia { column-gap: 4%; grid-template-columns: 1.2fr .75fr 1fr; }
+  .dove__indirizzo { font-size: 19px; }
+  .passi { font-size: 12px; }
+}
+@media (max-width: 899px) {
+  .apertura__griglia { grid-template-columns: minmax(0, 1fr) minmax(0, .85fr); gap: 5%; align-items: center; }
+  .insegna__nome { font-size: clamp(66px, 10vw, 90px); }
+  .insegna__wine { font-size: 23px; }
+  .apertura__testo { gap: 16px; padding-bottom: 0; }
+  .apertura__riassunto { font-size: 18px; }
+  .apertura__dove { font-size: 16px; }
+  .azioni { grid-template-columns: 1fr; max-width: 270px; gap: 10px; }
+  .azioni .bottone { width: 100%; font-size: 11px; }
+  .apertura__foto { aspect-ratio: 310 / 610; }
+  .apertura__etichetta { font-size: 7px; letter-spacing: .1em; }
+  .apertura__targa { right: -8px; width: 81px; min-height: 98px; bottom: 62px; }
+  .apertura__targa strong { font-size: 45px; }.apertura__targa>span { font-size: 6px; }
+  .apertura__firma { font-size: 15px; }
+  .apertura__scena::before { inset-inline: -8%; }
+  .posto .contenitore { column-gap: 7%; }
+  .claim p { font-size: 45px; }.posto__testo { font-size: 13px; line-height: 1.9; }
+  .pilastri { gap: 18px; }
+  .pilastri__parola { font-size: 28px; }.pilastri__icona { display: none; }
+  .pilastri__dettaglio { grid-template-columns: 15px 1fr; gap: 8px; padding-top: 16px; }.pilastri__dettaglio>span:last-child { padding-right: 0; }
+  .pilastri li:nth-child(2) { padding-top: 30px; }
+  .dove__griglia { grid-template-columns: 1.1fr 1fr; grid-template-areas: 'dove orari' 'foto contatti'; column-gap: 10%; row-gap: 35px; }
+  .dove__foto { width: min(100%, 260px); }
+  .dove .titolo-sezione { font-size: 48px; max-width: none; }
+  .contatto__tel { font-size: 25px; }
+}
+@media (max-width: 600px) {
+  :root { --gutter: 24px; --ritmo: 66px; }
+  html { scroll-padding-top: 90px; }
+  .avviso-demo { font-size: 9px; padding-block: 5px; }
+  .testata__riga { min-height: 65px; gap: 12px; }
+  .testata__logo img { width: 39px; height: 39px; }
+  .testata__nav { gap: 20px; font-size: 11px; }
+  .testata__nome { display: none; }
+  .apertura { padding-top: 29px; }
+  .apertura__griglia { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .apertura__testo { gap: 13px; }
+  .sopratitolo { font-size: 8px; gap: 12px; letter-spacing: .2em; }
+  .sopratitolo__linea { width: 26px; }
+  .insegna { gap: 12px; }
+  .insegna__wine { font-size: 21px; }
+  .insegna__nome { display: flex; flex-wrap: wrap; gap: .19em; font-size: clamp(37px, 11.3vw, 66px); line-height: 1; letter-spacing: -.045em; }
+  .apertura__riassunto { font-size: 18px; margin-top: 3px; }
+  .stato { font-size: 12px; }
+  .apertura__dove { font-size: 15px; line-height: 1.6; }
+  .apertura__dove [data-campo=complesso] { font-size: 12px; }
+  .azioni { grid-template-columns: .85fr 1.15fr; max-width: none; gap: 10px; margin-top: 3px; }
+  .azioni .bottone { font-size: 10px; padding-inline: 13px; gap: 8px; min-height: 48px; }
+  .azioni .bottone>span[aria-hidden] { font-size: 18px; }
+  .azioni__nota { font-size: 11px; margin-top: -3px; }
+  .apertura__scena { width: 100%; max-width: 375px; justify-self: center; padding-inline: 13px; }
+  .apertura__foto { aspect-ratio: 310 / 460; }
+  .apertura__foto>img { object-position: 50% 65%; }
+  .apertura__etichetta { font-size: 7px; margin-bottom: 12px; }
+  .apertura__targa { right: 0; bottom: 54px; width: 83px; min-height: 101px; }
+  .apertura__scena::before { inset: 9% 1% 6%; transform: rotate(4deg); }
+  .apertura__scena::after { left: 10%; right: 7%; }
+  .apertura__firma { font-size: 16px; margin-top: 18px; }
+  .apertura__fondo { margin-top: 27px; padding-block: 14px; gap: 12px; }
+  .apertura__fondo>span { font-size: 7px; letter-spacing: .12em; }
+  .apertura__fondo i { margin-inline: 7px; }
+  .apertura__fondo>a { font-size: 10px; gap: 12px; }
+  .posto .contenitore { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .posto .titolo-sezione { font-size: 9px; margin-bottom: 20px; }
+  .claim { grid-column: 1; grid-row: 2; }.claim p { font-size: 46px; max-width: 15ch; }
+  .posto__testo { grid-column: 1; grid-row: 3; padding: 0; font-size: 14px; margin-top: 23px; }
+  .pilastri { grid-column: 1; grid-row: 4; grid-template-columns: minmax(0, 1fr); gap: 34px; margin-top: 34px; }
+  .pilastri li:nth-child(2) { padding-top: 0; }
+  .pilastri__foto { aspect-ratio: 1.24; }
+  .pilastri__dettaglio { grid-template-columns: 22px 1fr; gap: 12px; padding-top: 16px; margin-top: 12px; }
+  .pilastri__parola { font-size: 35px; display: inline; margin-right: 9px; }
+  .pilastri__dettaglio>span:last-child { font-size: 12px; }
+  .immagini-nota { margin-top: 24px; font-size: 9px; }
+  .dove__griglia { grid-template-columns: minmax(0, 1fr); grid-template-areas: 'dove' 'foto' 'orari' 'contatti'; gap: 36px; }
+  .dove__blocco { gap: 20px; }
+  .dove .titolo-sezione { font-size: 48px; max-width: 10ch; }
+  .dove__indirizzo { font-size: 23px; }
+  .dove__indirizzo [data-campo=complesso] { font-size: 17px; }
+  .passi { font-size: 14px; gap: 17px; }
+  .dove__foto { width: min(85%, 270px); justify-self: center; margin: 0 0 8px; }
+  .orari { font-size: 15px; }.orari th,.orari td { padding-block: 12px; }
+  .contatto__tel { font-size: 29px; }
+  .piede__griglia { grid-template-columns: 45px 1fr; gap: 14px; }
+  .piede__logo { width: 43px; height: 43px; }
+  .piede__nome { font-size: 23px; }.piede__griglia>div>p:last-child { font-size: 11px; }
+  .piede__note { font-size: 9px; margin-top: 10px; }
+}
+@media (max-width: 359px) {
+  :root { --gutter: 20px; }
+  .testata__nav { gap: 17px; font-size: 10px; }
+  .insegna__nome { font-size: 11.2vw; }
+  .azioni .bottone { font-size: 9px; padding-inline: 11px; gap: 5px; }
+  .azioni .bottone>span[aria-hidden] { font-size: 16px; }
+  .apertura__riassunto { font-size: 17px; }.apertura__fondo>span { font-size: 6px; }
+  .claim p { font-size: 42px; }.pilastri__parola { font-size: 30px; }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .bottone:hover { transform: translateY(-2px); }
+  .bottone:hover>span[aria-hidden] { transform: translate(3px, -3px); }
+  .pilastri li:hover .pilastri__foto img { transform: scale(1.035); }
+  .apertura__targa:hover { transform: translateY(-4px); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .insegna__nome { animation: luce-neon 1.1s ease-out both; }
+}
+@keyframes luce-neon {
+  from { color: #d65e55; text-shadow: 0 0 0 transparent; }
+  to { color: var(--neon); text-shadow: 0 0 22px rgb(224 71 74 / .18); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,*::before,*::after { animation: none !important; transition: none !important; }
+  .apertura__foto>img { transform: translateY(-12px) !important; }
+  .pilastri__foto img,.bottone,.apertura__targa { transform: none !important; }
+}
